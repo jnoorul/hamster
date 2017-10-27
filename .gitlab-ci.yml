@@ -1,0 +1,28 @@
+image: node:8
+
+stages:
+  - install
+  - build
+  - deploy
+
+install:
+  stage: install
+  script:
+    - npm install
+  only:
+    - master
+
+build:
+  stage: build
+  script:
+    - npm run build
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -yq
+    - apt-get install rubygems ruby-dev -y
+    - gem install dpl
+    - dpl --provider=heroku --app=hack-hamster --api-key=4ab71350-cef0-4da6-a47c-781be6804b0c
