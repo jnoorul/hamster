@@ -5,7 +5,13 @@
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+
+    "react-scripts": "1.0.14",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0"
   },
   "scripts": {
     "start": "eslint src && react-scripts start",
@@ -13,12 +19,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start-hamster": "react-scripts build && node build/server.js"
-  },
-  "devDependencies": {
-    "eslint": "^4.9.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
   }
 }
