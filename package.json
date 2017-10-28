@@ -12,7 +12,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-hamster": "npm run build && node build/server.js"
+    "start-hamster": "react-scripts build && node build/server.js"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
