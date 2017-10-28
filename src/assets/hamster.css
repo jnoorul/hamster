@@ -1,0 +1,14 @@
+body {
+    font-family: "Arial Black", Georgia, "Franklin Gothic Medium";
+}
+
+.header {
+    background-color: darkslategray;
+    padding: 1rem;
+    font-size: large;
+}
+
+.customerQuestion {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

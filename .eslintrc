@@ -6,6 +6,8 @@
   },
   "rules": {
     "linebreak-style": ["error", "windows"],
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "no-useless-constructor": "off",
+    "react/prefer-stateless-function": "off"
   }
 }
