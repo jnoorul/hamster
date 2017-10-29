@@ -29,30 +29,34 @@ class Portfolio extends React.Component {
     ];
     }
 
-    getAssetAllocationBreakdown = () => {
+    getAssetAllocationSeriesBreakdown = () => {
         return [
-            {
-                name: 'Stocks',
-                colorByPoint: true,
-                data: [{
-                    name: 'MSFT',
-                    y: 56.33,
-                    drilldown: 'Others'
-                }, {
-                    name: 'AAPL',
-                    y: 24.03,
-                    drilldown: 'Others'
-                }, {
-                    name: 'AMZ',
-                    y: 10.38,
-                    drilldown: 'Others'
-                }, {
-                    name: 'Others',
-                    y: 4.77,
-                    drilldown: 'Others'
-                }],
-            drilldown: {
-                series: [{
+                {
+                    name: 'Stocks',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'MSFT',
+                        y: 56.33
+                    }, {
+                        name: 'AAPL',
+                        y: 24.03
+                    }, {
+                        name: 'AMZ',
+                        y: 10.38
+                    }, {
+                        name: 'Others',
+                        y: 4.77,
+                        drilldown: 'Others'
+                    }]
+                }
+               ]
+    }
+
+
+    getAssetAllocationDrilldownBreakdown = () => {
+        return {
+            series: [
+                {
                     name: 'Others',
                     id: 'Others',
                     data: [
@@ -74,7 +78,7 @@ class Portfolio extends React.Component {
                         ]
                     ]
                 }],
-            }}]
+        }
     }
 
 
@@ -82,7 +86,7 @@ class Portfolio extends React.Component {
         return (
             <div>
             <Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
-                <Column title="Stocks Breakdown" series={this.getAssetAllocationBreakdown()} />
+                <Column title="Stocks Breakdown" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
              </div>
            )
     }
