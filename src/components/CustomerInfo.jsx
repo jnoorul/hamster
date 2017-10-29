@@ -12,20 +12,20 @@ class CustomerInfo extends React.Component {
     this.onRiskAppetiteChange = this.onRiskAppetiteChange.bind(this);
   }
 
-  onAgeChange(value) {
-    this.setState({age: value});
+  onAgeChange(event) {
+    this.setState({age: event.target.value});
   }
 
-  onInvestmentAmountChange(value) {
-    this.setState({investmentAmount: value});
+  onInvestmentAmountChange(event) {
+    this.setState({investmentAmount: event.target.value});
   }
 
-  onInvestmentHorizonChange(value) {
-    this.setState({investmentHorizon: value});
+  onInvestmentHorizonChange(event) {
+    this.setState({investmentHorizon: event.target.value});
   }
 
-  onRiskAppetiteChange(value) {
-    this.setState({riskAppetite: value});
+  onRiskAppetiteChange(event) {
+    this.setState({riskAppetite: event.target.value});
   }
 
   render() {
@@ -56,21 +56,33 @@ class CustomerInfo extends React.Component {
 
     return (
       <div className="customerInfo">
-        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Age</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Age</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.age}</Label>
-        <Slider marks={age} step={1} min={20} max={100} value={this.state.age} onChange={this.onAgeChange} />
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Investment Amount in USD</Label>
-        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentAmount}</Label>
-        <Slider marks={investmentAmount} step={10} value={this.state.investmentAmount} onChange={this.onInvestmentAmountChange}/>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="100" value={this.state.age} className="slider" id="myRange" onInput={this.onAgeChange} />
+        </div>
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Investment Horizon in Years</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Amount in USD</Label>
+        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentAmount}m</Label>
+        <br /><br />
+        <div id="slidecontainer">
+          <input type="range" min="1" max="100" value={this.state.investmentAmount} className="slider" id="myRange" onInput={this.onInvestmentAmountChange} />
+        </div>
+        <br /><br />
+        <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Horizon in Years</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentHorizon}</Label>
-        <Slider marks={investmentHorizon} min={0} max={20} step={1} value={this.state.investmentHorizon} onChange={this.onInvestmentHorizonChange} />
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Risk Appetite</Label>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="100" value={this.state.investmentHorizon} className="slider" id="myRange" onInput={this.onInvestmentHorizonChange} />
+        </div>
+        <br /><br />
+        <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Risk Appetite</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.riskAppetite}</Label>
-        <Slider marks={riskAppetite} step={1} min={1} max={10} value={this.state.riskAppetite} onChange={this.onRiskAppetiteChange} />
+        <br /><br />
+        <div id="slidecontainer">
+          <input type="range" min="1" max="100" value={this.state.riskAppetite} className="slider" id="myRange" onInput={this.onRiskAppetiteChange} />
+        </div>
         <br /><br />
         <Label basic as="a">Tell us more</Label>
       </div>
