@@ -1,10 +1,11 @@
 import React from 'react';
-import CustomerQuestion from '../components/CustomerQuestions';
+import CustomerInfo from '../components/CustomerInfo';
 
 export default function Hamster() {
-  return (<div>
-    <div className="header" style={{ color: 'white' }}>Hamster</div>
-    <br />
-    <CustomerQuestion />
-  </div>);
+  return (
+    <div>
+      <div className="header" style={{ color: 'white' }}>Hamster</div>
+      <br />
+      <CustomerInfo />
+    </div>);
 }
