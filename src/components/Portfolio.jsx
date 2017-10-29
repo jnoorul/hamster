@@ -1,11 +1,7 @@
 import React from 'react';
 import Pie from './charts/Pie'
 
-const styles = {
-    portfolio : {
-        width:"60%"
-    }
-}
+
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -35,9 +31,8 @@ class Portfolio extends React.Component {
 
     render() {
         return (
-            <div styles={styles.portfolio}>
             <Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
-            </div>)
+           )
     }
 }
 
