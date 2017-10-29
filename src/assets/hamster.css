@@ -12,3 +12,7 @@ body {
     margin-left: 1rem;
     margin-right: 2rem;
 }
+
+.fontSizeLarge {
+    font-size: 150%;
+}

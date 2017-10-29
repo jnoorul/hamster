@@ -34,7 +34,7 @@ class CustomerInfo extends React.Component {
 
     return (
       <div className="customerInfo">
-        <Label basic>Age</Label>
+        <Label basic className="fontSizeLarge">Age</Label>
         <Slider marks={age} step={1} />
         <br /><br />
         <Label basic>Investment Amount in USD(millions)</Label>

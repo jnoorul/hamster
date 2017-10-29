@@ -27,7 +27,7 @@ class Portfolio extends React.Component {
         ],
         },
     ];
-    }
+    };
 
     getAssetAllocationSeriesBreakdown = () => {
         return [
@@ -50,7 +50,7 @@ class Portfolio extends React.Component {
                     }]
                 }
                ]
-    }
+    };
 
 
     getAssetAllocationDrilldownBreakdown = () => {
@@ -79,7 +79,7 @@ class Portfolio extends React.Component {
                     ]
                 }],
         }
-    }
+    };
 
 
     render() {
