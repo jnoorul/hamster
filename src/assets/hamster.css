@@ -11,4 +11,5 @@ body {
 .customerQuestion {
     margin-left: 1rem;
     margin-right: 1rem;
+    width: 25%;
 }
