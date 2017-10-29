@@ -5,7 +5,7 @@
     "browser": true
   },
   "rules": {
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": "off",
     "react/jsx-filename-extension": "off",
     "no-useless-constructor": "off",
     "react/prefer-stateless-function": "off"
