@@ -16,6 +16,7 @@ body {
 
 #slidecontainer {
     width: 100%;
+    position: relative;
 }
 
 .slider {
@@ -48,5 +49,23 @@ body {
     height: 25px;
     background: green;
     cursor: pointer;
+}
+
+/* label max */
+.max{
+    position: absolute;
+    top: 1.7rem;
+    right: 0.5rem;
+    font-size: 0.8rem;
+    color: dimgrey;
+}
+
+/*label min */
+.min{
+    position: absolute;
+    top: 1.7rem;
+    left: 0.5rem;
+    font-size: 0.8rem;
+    color: dimgrey;
 }
 

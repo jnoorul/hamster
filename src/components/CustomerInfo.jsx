@@ -61,6 +61,8 @@ class CustomerInfo extends React.Component {
         <br /><br />
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value={this.state.age} className="slider" id="myRange" onInput={this.onAgeChange} />
+          <div className="min">20</div>
+          <div className="max">100</div>
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Amount in USD</Label>
@@ -68,6 +70,8 @@ class CustomerInfo extends React.Component {
         <br /><br />
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value={this.state.investmentAmount} className="slider" id="myRange" onInput={this.onInvestmentAmountChange} />
+          <div className="min">1m</div>
+          <div className="max">100m</div>
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Horizon in Years</Label>
@@ -75,6 +79,8 @@ class CustomerInfo extends React.Component {
         <br /><br />
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value={this.state.investmentHorizon} className="slider" id="myRange" onInput={this.onInvestmentHorizonChange} />
+          <div className="min">1</div>
+          <div className="max">20</div>
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Risk Appetite</Label>
@@ -82,6 +88,8 @@ class CustomerInfo extends React.Component {
         <br /><br />
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value={this.state.riskAppetite} className="slider" id="myRange" onInput={this.onRiskAppetiteChange} />
+          <div className="min">Low</div>
+          <div className="max">High</div>
         </div>
         <br /><br />
         <Label basic as="a">Tell us more</Label>
