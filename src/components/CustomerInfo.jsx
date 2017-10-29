@@ -34,19 +34,19 @@ class CustomerInfo extends React.Component {
 
     return (
       <div className="customerInfo">
-        <Label basic className="fontSizeLarge">Age</Label>
+        <Label basic style={{fontSize: '1.1rem'}}>Age</Label>
         <Slider marks={age} step={1} />
         <br /><br />
-        <Label basic>Investment Amount in USD(millions)</Label>
+        <Label basic style={{fontSize: '1.1rem'}}>Investment Amount in USD(millions)</Label>
         <Slider marks={investmentAmount} step={10} />
         <br /><br />
-        <Label basic>Investment Horizon in Years</Label>
+        <Label basic style={{fontSize: '1.1rem'}}>Investment Horizon in Years</Label>
         <Slider marks={investmentHorizon} step={10} />
         <br /><br />
-        <Label basic>Risk Appetite</Label>
+        <Label basic style={{fontSize: '1.1rem'}}>Risk Appetite</Label>
         <Slider marks={riskAppetite} step={10} />
         <br /><br />
-        <Label as="a">Tell us more</Label>
+        <Label basic as="a">Tell us more</Label>
       </div>
     );
   }

@@ -10,10 +10,10 @@ export default function Hamster() {
       <br />
       <Grid>
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column width={6}>
             <CustomerInfo />
           </Grid.Column>
-          <Grid.Column width={12}>
+          <Grid.Column width={10}>
             <Portfolio />
           </Grid.Column>
         </Grid.Row>
