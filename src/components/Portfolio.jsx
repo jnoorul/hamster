@@ -1,5 +1,6 @@
 import React from 'react';
 import Pie from './charts/Pie'
+import Column from './charts/Column'
 
 
 
@@ -28,10 +29,61 @@ class Portfolio extends React.Component {
     ];
     }
 
+    getAssetAllocationBreakdown = () => {
+        return [
+            {
+                name: 'Stocks',
+                colorByPoint: true,
+                data: [{
+                    name: 'MSFT',
+                    y: 56.33,
+                    drilldown: 'Others'
+                }, {
+                    name: 'AAPL',
+                    y: 24.03,
+                    drilldown: 'Others'
+                }, {
+                    name: 'AMZ',
+                    y: 10.38,
+                    drilldown: 'Others'
+                }, {
+                    name: 'Others',
+                    y: 4.77,
+                    drilldown: 'Others'
+                }],
+            drilldown: {
+                series: [{
+                    name: 'Others',
+                    id: 'Others',
+                    data: [
+                        [
+                            'ABC',
+                            1.2
+                        ],
+                        [
+                            'CDE',
+                            1.1
+                        ],
+                        [
+                            'DEF',
+                            1
+                        ],
+                        [
+                            'TET',
+                            .9
+                        ]
+                    ]
+                }],
+            }}]
+    }
+
 
     render() {
         return (
+            <div>
             <Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
+                <Column title="Stocks Breakdown" series={this.getAssetAllocationBreakdown()} />
+             </div>
            )
     }
 }
