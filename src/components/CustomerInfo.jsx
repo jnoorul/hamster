@@ -33,7 +33,7 @@ class CustomerInfo extends React.Component {
 
 
     return (
-      <div className="customerQuestion">
+      <div className="customerInfo">
         <Label basic>Age</Label>
         <Slider marks={age} step={1} />
         <br /><br />

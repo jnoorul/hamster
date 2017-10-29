@@ -1,6 +1,8 @@
 import React from 'react';
-import CustomerQuestion from '../components/CustomerQuestions';
+import { Grid } from 'semantic-ui-react';
+import CustomerInfo from '../components/CustomerInfo';
 import Portfolio from '../components/Portfolio';
+
 
 const styles = {
   mainStyle: {
@@ -17,12 +19,20 @@ const styles = {
 
 
 export default function Hamster() {
-  return (<div>
-    <div className="header" style={{ color: 'white' }}>Hamster</div>
-    <br />
-    <div id="container" style={styles.mainStyle}>
-      <CustomerQuestion style={styles.customer} />
-      <Portfolio style={styles.portfolio} />
-    </div>
-  </div>);
+  return (
+    <div>
+      <div className="header" style={{ color: 'white' }}>Hamster</div>
+      <br />
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width={4}>
+            <CustomerInfo />
+          </Grid.Column>
+          <Grid.Column width={12}>
+            <Portfolio />
+          </Grid.Column>
+
+        </Grid.Row>
+      </Grid>
+    </div>);
 }
