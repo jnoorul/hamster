@@ -37,7 +37,7 @@ class CustomerInfo extends React.Component {
         <Label basic style={{fontSize: '1.1rem'}}>Age</Label>
         <Slider marks={age} step={1} />
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem'}}>Investment Amount in USD(millions)</Label>
+        <Label basic style={{fontSize: '1.1rem'}}>Investment Amount in USD</Label>
         <Slider marks={investmentAmount} step={10} />
         <br /><br />
         <Label basic style={{fontSize: '1.1rem'}}>Investment Horizon in Years</Label>
