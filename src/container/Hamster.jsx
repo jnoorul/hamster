@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomerQuestion from './CustomerQuestions';
+import CustomerQuestion from '../components/CustomerQuestions';
 
 export default function Hamster() {
   return (<div>
