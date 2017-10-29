@@ -22,6 +22,9 @@ export default function Column(props) {
       },
 
     },
+    credits: {
+      enabled: false,
+    },
     legend: {
       enabled: false,
     },
