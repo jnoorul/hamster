@@ -11,17 +11,14 @@ export default function Column(props) {
       type: 'column',
     },
     title: {
-      text: 'Browser market shares. January, 2015 to May, 2015',
-    },
-    subtitle: {
-      text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.',
+      text: props.title,
     },
     xAxis: {
       type: 'category',
     },
     yAxis: {
       title: {
-        text: 'Total percent market share',
+        text: `Total percent of ${props.assetClass}`,
       },
 
     },

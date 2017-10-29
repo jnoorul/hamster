@@ -86,7 +86,7 @@ class Portfolio extends React.Component {
         return (
             <div>
             <Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
-                <Column title="Stocks Breakdown" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
+                <Column title="Stocks Breakdown" assetClass="Stock" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
              </div>
            )
     }
