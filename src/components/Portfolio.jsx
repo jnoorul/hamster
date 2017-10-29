@@ -84,7 +84,7 @@ class Portfolio extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{ borderLeft: 'solid 1px rgba(0,0,0,0.1)' }}>
             <Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
                 <Column title="Stocks Breakdown" assetClass="Stock" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
              </div>

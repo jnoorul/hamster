@@ -56,19 +56,19 @@ class CustomerInfo extends React.Component {
 
     return (
       <div className="customerInfo">
-        <Label basic style={{fontSize: '1.1rem'}}>Age</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Age</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.age}</Label>
         <Slider marks={age} step={1} min={20} max={100} value={this.state.age} onChange={this.onAgeChange} />
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem'}}>Investment Amount in USD</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Investment Amount in USD</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentAmount}</Label>
         <Slider marks={investmentAmount} step={10} value={this.state.investmentAmount} onChange={this.onInvestmentAmountChange}/>
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem'}}>Investment Horizon in Years</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Investment Horizon in Years</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentHorizon}</Label>
         <Slider marks={investmentHorizon} min={0} max={20} step={1} value={this.state.investmentHorizon} onChange={this.onInvestmentHorizonChange} />
         <br /><br />
-        <Label basic style={{fontSize: '1.1rem'}}>Risk Appetite</Label>
+        <Label basic style={{fontSize: '1.1rem', border: '0'}}>Risk Appetite</Label>
         <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.riskAppetite}</Label>
         <Slider marks={riskAppetite} step={1} min={1} max={10} value={this.state.riskAppetite} onChange={this.onRiskAppetiteChange} />
         <br /><br />
