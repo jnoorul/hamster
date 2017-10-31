@@ -57,8 +57,8 @@ class CustomerInfo extends React.Component {
     return (
       <div className="customerInfo">
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Age</Label>
-        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.age}</Label>
-        <br /><br />
+        <Label style={{fontSize: '1.1rem', border: 0, color: 'darkgreen'}} basic>{this.state.age}</Label>
+        <br />
         <div id="slidecontainer">
           <input type="range" min="20" max="100" value={this.state.age} className="slider" id="myRange" onInput={this.onAgeChange} />
           <div className="min">20</div>
@@ -66,8 +66,8 @@ class CustomerInfo extends React.Component {
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Amount in USD</Label>
-        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentAmount}m</Label>
-        <br /><br />
+        <Label style={{fontSize: '1.1rem', border: 0, color: 'darkgreen'}} basic>{this.state.investmentAmount}m</Label>
+        <br />
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value={this.state.investmentAmount} className="slider" id="myRange" onInput={this.onInvestmentAmountChange} />
           <div className="min">1m</div>
@@ -75,8 +75,8 @@ class CustomerInfo extends React.Component {
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Investment Horizon in Years</Label>
-        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.investmentHorizon}</Label>
-        <br /><br />
+        <Label style={{fontSize: '1.1rem', border: 0, color: 'darkgreen'}} basic>{this.state.investmentHorizon}</Label>
+        <br />
         <div id="slidecontainer">
           <input type="range" min="1" max="20" value={this.state.investmentHorizon} className="slider" id="myRange" onInput={this.onInvestmentHorizonChange} />
           <div className="min">1</div>
@@ -84,8 +84,8 @@ class CustomerInfo extends React.Component {
         </div>
         <br /><br />
         <Label basic style={{fontSize: '1.1rem', border: '0', paddingLeft: '0'}}>Risk Appetite</Label>
-        <Label style={{fontSize: '1.1rem', border: 0}} color="teal">{this.state.riskAppetite}</Label>
-        <br /><br />
+        <Label style={{fontSize: '1.1rem', border: 0, color: 'darkgreen'}} basic>{this.state.riskAppetite}</Label>
+        <br />
         <div id="slidecontainer">
           <input type="range" min="1" max="10" value={this.state.riskAppetite} className="slider" id="myRange" onInput={this.onRiskAppetiteChange} />
           <div className="min">Low</div>
