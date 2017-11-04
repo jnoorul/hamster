@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
-import WelcomePage from '../components/WelcomePage';
+import WelcomePage from '../components/home/WelcomePage';
 
 const Hamster = class Hamster extends React.Component {
   constructor(props) {
