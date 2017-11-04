@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from 'semantic-ui-react';
 import WelcomePage from '../components/home/WelcomePage';
 import Header from '../components/home/Header';
 
 const Hamster = class Hamster extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.loadCustomerDetails();
@@ -18,7 +14,7 @@ const Hamster = class Hamster extends React.Component {
       <div>
           <Header/>
         <WelcomePage />
-        <div className="footer" style={{ color: 'white' }}>Hamster</div>
+        <div className="footer" style={{ color: 'white' }}>@Copyrights Credit Suisse</div>
       </div>);
   }
 };
