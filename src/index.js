@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 import 'semantic-ui-css/semantic.min.css';
 import HamsterContainer from './container/HamsterContainer';
 import registerServiceWorker from './registerServiceWorker';
-import './assets/hamster.css';
+import './assets/styles/hamster.css';
 import reducer from './reducers';
 
 const store = createStore(reducer);

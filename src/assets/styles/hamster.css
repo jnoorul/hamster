@@ -6,7 +6,27 @@ body {
     background-color: darkslategray;
     padding: 1rem;
     font-size: large;
+    height: 50px;
 }
+
+.footer {
+    background-color: darkslategray;
+    padding: 1rem;
+    font-size: large;
+    height: 50px;
+}
+
+.welcomePage {
+    height: 635px;
+}
+
+.roboImage {
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding: 2rem;
+}
+
 
 .customerInfo {
     margin-top: 2rem;
