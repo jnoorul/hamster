@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 import WelcomePage from '../components/home/WelcomePage';
+import Header from '../components/home/Header';
 
 const Hamster = class Hamster extends React.Component {
   constructor(props) {
@@ -15,12 +16,11 @@ const Hamster = class Hamster extends React.Component {
   render() {
     return (
       <div>
-        <div className="header" style={{ color: 'white' }}>Hamster</div>
+          <Header/>
         <WelcomePage />
         <div className="footer" style={{ color: 'white' }}>Hamster</div>
       </div>);
   }
-
 };
 
 Hamster.propTypes = {
