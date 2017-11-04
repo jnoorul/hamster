@@ -75,7 +75,7 @@ class Login extends React.Component {
             width: '40px', height: '38px', marginRight: '3rem', float: 'right', padding: '0px',
 }}
     >
-      <IconButton onClick={this.handleOpen.bind(this)}>
+      <IconButton onClick={this.handleOpen.bind(this)} style={{width: '40px', height: '38px', padding:'0px'}}>
         <Avatar
           src={require('../../assets/images/login.png')}
           size={30}
