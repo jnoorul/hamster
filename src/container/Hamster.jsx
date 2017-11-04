@@ -14,7 +14,7 @@ const Hamster = class Hamster extends React.Component {
       <div>
           <Header/>
         <WelcomePage />
-        <div className="footer" style={{ color: 'white' }}>@Copyrights Hamster</div>
+        <div className="footer" style={{ color: 'black' }}>@Copyrights Hamster</div>
       </div>);
   }
 };

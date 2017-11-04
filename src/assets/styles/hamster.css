@@ -10,9 +10,9 @@ body {
 }
 
 .footer {
-    background-color: darkslategray;
+    background-color: rgb(242,242,242);
     padding: 1rem;
-    font-size: medium;
+    font-size: small;
     height: 50px;
 }
 

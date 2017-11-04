@@ -19,7 +19,7 @@ export default function WelcomePage() {
         <Grid.Row>
           <Grid.Column width={16}>
             <Header as="h2" textAlign="center" style={{backgroundColor: 'white', color: 'black'}}>
-              Your Friendly Adviser
+              Your Friendly Investment Adviser
             </Header>
           </Grid.Column>
         </Grid.Row>
