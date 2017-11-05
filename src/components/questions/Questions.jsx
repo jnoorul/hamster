@@ -5,6 +5,7 @@ import Age from './Age';
 import InvestmentKnowledge from './InvestmentKnowledge';
 import InvestmentExperience from './InvestmentExperience';
 import NumberOfYears from './NumberOfYears';
+import Portfolio from '../Portfolio';
 
 class Questions extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Questions extends React.Component {
         2: InvestmentKnowledge,
         3: InvestmentExperience,
         4: NumberOfYears,
-        5: WelcomePage,
+        5: Portfolio,
       },
     };
   }
