@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WelcomePage from '../components/home/WelcomePage';
+import QuestionsContainer from '../container/QuestionsContainer';
 import Header from '../components/home/Header';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -17,7 +17,7 @@ const Hamster = class Hamster extends React.Component {
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <div>
               <Header/>
-            <WelcomePage />
+            <QuestionsContainer />
             <div className="footer" style={{ color: 'black' }}>@Copyrights Hamster</div>
           </div>
         </MuiThemeProvider>);

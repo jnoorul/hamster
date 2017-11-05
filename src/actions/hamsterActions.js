@@ -11,3 +11,18 @@ export function loadPortfolioInfo() {
     info: {},
   };
 }
+
+export function setQuestionNumber(qnNumber) {
+  return {
+    type: 'SET_QUESTION_NUMBER',
+    qnNumber,
+  };
+}
+
+
+export function setCurrentPage(pageName) {
+  return {
+    type: 'SET_CURRENT_PAGE',
+    currentPage: pageName,
+  };
+}
