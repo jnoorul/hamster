@@ -1,20 +1,22 @@
+import * as actions from './actionNames';
+
 export function loadCustomerInfo() {
   return {
-    type: 'LOAD_CUSTOMER_INFO',
+    type: actions.LOAD_CUSTOMER_INFO,
     info: { name: 'Noorul Ameen' },
   };
 }
 
 export function loadPortfolioInfo() {
   return {
-    type: 'LOAD_PORTFOLIO_INFO',
+    type: actions.LOAD_PORTFOLIO_INFO,
     info: {},
   };
 }
 
 export function setQuestionNumber(qnNumber) {
   return {
-    type: 'SET_QUESTION_NUMBER',
+    type: actions.SET_QUESTION_NUMBER,
     qnNumber,
   };
 }
@@ -22,7 +24,7 @@ export function setQuestionNumber(qnNumber) {
 
 export function setCurrentPage(pageName) {
   return {
-    type: 'SET_CURRENT_PAGE',
+    type: actions.SET_CURRENT_PAGE,
     currentPage: pageName,
   };
 }
