@@ -7,7 +7,7 @@ const styles = {
     color: orange500,
   },
   customContentStyle: {
-    width: '70%',
+    width: '40%',
     maxWidth: 'none',
   },
 };
