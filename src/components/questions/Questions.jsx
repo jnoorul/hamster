@@ -4,7 +4,7 @@ import WelcomePage from '../home/WelcomePage';
 import Age from './Age';
 import InvestmentKnowledge from './InvestmentKnowledge';
 import InvestmentExperience from './InvestmentExperience';
-import NumberOfYears from './NumberOfYears';
+import InvestmentHorizon from './InvestmentHorizon';
 import Portfolio from '../Portfolio';
 
 class Questions extends React.Component {
@@ -17,7 +17,7 @@ class Questions extends React.Component {
         1: Age,
         2: InvestmentKnowledge,
         3: InvestmentExperience,
-        4: NumberOfYears,
+        4: InvestmentHorizon,
         5: Portfolio,
       },
     };

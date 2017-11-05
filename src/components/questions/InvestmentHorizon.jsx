@@ -6,12 +6,17 @@ class NumberOfYears extends React.Component {
   constructor(props) {
     super(props);
     this.onComplete = this.onComplete.bind(this);
+    this.setInvestmentHorizon = this.setInvestmentHorizon.bind(this);
   }
 
   onComplete() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
-
   }
+
+  setInvestmentHorizon(event) {
+    this.props.setInvestmentHorizon(event.target.getAttribute('data-key'));
+  }
+
   render() {
     const buttonStyle = {
       border: 'solid 1px steelblue',
@@ -29,13 +34,28 @@ class NumberOfYears extends React.Component {
         <Grid columns={1}>
           <Grid.Row width={16} centered>
             <Button.Group vertical>
-              <Button style={buttonStyle} className="primary">
+              <Button
+                data-key="0-5"
+                style={buttonStyle}
+                className={('0-5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                onClick={this.setInvestmentHorizon}
+              >
                 Less than 5 years
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="5-10"
+                style={buttonStyle}
+                className={('5-10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                onClick={this.setInvestmentHorizon}
+              >
                 5 to 10 years
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="10-20"
+                style={buttonStyle}
+                className={('10-20' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                onClick={this.setInvestmentHorizon}
+              >
                 More than 10 years
               </Button>
             </Button.Group>
@@ -60,6 +80,7 @@ NumberOfYears.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
   getNextQuestion: PropTypes.func.isRequired,
+  setInvestmentHorizon: PropTypes.func.isRequired,
 };
 
 export default NumberOfYears;

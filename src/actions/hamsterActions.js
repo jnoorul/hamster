@@ -41,3 +41,11 @@ export function setKnowledge(knowledge) {
     knowledge,
   };
 }
+
+export function setInvestmentHorizon(investmentHorizon) {
+  return {
+    type: actions.SET_INVESTMENT_HORIZON,
+    investmentHorizon,
+  };
+}
+

@@ -10,6 +10,8 @@ export default function customerInfoReducer(state = {}, action) {
       return Object.assign({}, state, { experience: action.experience });
     case actions.SET_KNOWLEDGE:
       return Object.assign({}, state, { knowledge: action.knowledge });
+    case actions.SET_INVESTMENT_HORIZON:
+      return Object.assign({}, state, { investmentHorizon: action.investmentHorizon });
     default:
       return state;
   }
