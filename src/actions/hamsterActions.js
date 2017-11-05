@@ -3,7 +3,7 @@ import * as actions from './actionNames';
 export function loadCustomerInfo() {
   return {
     type: actions.LOAD_CUSTOMER_INFO,
-    info: { name: 'Noorul Ameen' },
+    customerInfo: {},
   };
 }
 
