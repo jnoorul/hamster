@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AssetData from '../assets/AC';
+// import AssetData from '../assets/AC';
 import ReactHighCharts from 'react-highcharts';
 
 class AssetDetails extends React.Component {

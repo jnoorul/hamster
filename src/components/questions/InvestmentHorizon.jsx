@@ -10,7 +10,7 @@ class NumberOfYears extends React.Component {
   }
 
   onComplete() {
-    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    this.props.saveCustomerInfo(this.props.customerInfo);
   }
 
   setInvestmentHorizon(event) {
@@ -35,25 +35,25 @@ class NumberOfYears extends React.Component {
           <Grid.Row width={16} centered>
             <Button.Group vertical>
               <Button
-                data-key="0-5"
+                data-key="0"
                 style={buttonStyle}
-                className={('0-5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('0' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 Less than 5 years
               </Button>
               <Button
-                data-key="5-10"
+                data-key="5"
                 style={buttonStyle}
-                className={('5-10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 5 to 10 years
               </Button>
               <Button
-                data-key="10-20"
+                data-key="10"
                 style={buttonStyle}
-                className={('10-20' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 More than 10 years
@@ -68,7 +68,7 @@ class NumberOfYears extends React.Component {
             onClick={this.onComplete}
             labelPosition="right"
             icon="right chevron"
-            content="Next"
+            content="ShowPortfolio"
           />
         </Button.Group>
       </div>
@@ -79,6 +79,7 @@ class NumberOfYears extends React.Component {
 NumberOfYears.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
+  customerInfo: PropTypes.shape({investmentHorizon: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   setInvestmentHorizon: PropTypes.func.isRequired,
 };

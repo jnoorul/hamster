@@ -1,5 +1,8 @@
 import * as actions from './actionNames';
 
+const hamsterServerUrl = 'https://hamster-server.herokuapp.com';
+// const hamsterServerUrl = 'https://localhost:3005';
+
 export function loadCustomerInfo() {
   return {
     type: actions.LOAD_CUSTOMER_INFO,
@@ -54,5 +57,24 @@ export function setAssetType(assetType) {
     type: actions.SET_ASSET_TYPE,
     assetType,
   };
+}
+
+export function saveCustomerSuccess(customerInfo) {
+  return {
+    type: actions.CUSTOMER_INFO_SAVE_SUCCESS,
+    customerInfo,
+  };
+}
+
+export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
+  fetch(`${hamsterServerUrl}/customer/insert`, {
+    method: 'POST',
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: customerInfo,
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes)=> {
+    dispatch(saveCustomerSuccess(jsonRes));
+  });
 }
 

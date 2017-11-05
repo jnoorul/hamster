@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as hamsterActionCreators from '../actions/hamsterActions';
+import { saveCustomerInfoWithDispatch } from "../actions/hamsterActions";
 import Questions from '../components/questions/Questions';
 
 const mapStateToProps = state => ({
@@ -19,7 +20,12 @@ const mapDispatchToProps = (dispatch) => {
       boundActionCreators.setQuestionNumber(nextQn);
     }
   };
-  return { getNextQuestion, ...boundActionCreators };
+
+  const saveCustomerInfo = (customerInfo) => {
+    saveCustomerInfoWithDispatch(dispatch, customerInfo);
+  };
+
+  return { getNextQuestion, saveCustomerInfo, ...boundActionCreators };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Questions);

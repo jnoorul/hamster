@@ -1,8 +1,10 @@
 import * as actions from '../actions/actionNames';
 
-export default function customerInfoReducer(state = {}, action) {
+export default function customerInfoReducer(state = { userId: 'nameen_123', portfolioId: '1' }, action) {
   switch (action.type) {
     case actions.LOAD_CUSTOMER_INFO:
+      return Object.assign({}, state, { ...action.customerInfo });
+    case actions.CUSTOMER_INFO_SAVE_SUCCESS:
       return Object.assign({}, state, { ...action.customerInfo });
     case actions.SET_AGE:
       return Object.assign({}, state, { age: action.age });
