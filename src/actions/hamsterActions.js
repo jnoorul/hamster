@@ -27,3 +27,17 @@ export function setAge(age) {
     age,
   };
 }
+
+export function setExperience(experience) {
+  return {
+    type: actions.SET_EXPERIENCE,
+    experience,
+  };
+}
+
+export function setKnowledge(knowledge) {
+  return {
+    type: actions.SET_KNOWLEDGE,
+    knowledge,
+  };
+}

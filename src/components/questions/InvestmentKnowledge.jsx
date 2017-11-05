@@ -6,12 +6,17 @@ class InvestmentKnowledge extends React.Component {
   constructor(props) {
     super(props);
     this.onComplete = this.onComplete.bind(this);
+    this.setKnowledge = this.setKnowledge.bind(this);
   }
 
   onComplete() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
-
   }
+
+  setKnowledge(event) {
+    this.props.setKnowledge(event.target.getAttribute('data-key'));
+  }
+
   render() {
     const buttonStyle = { border: 'solid 1px steelblue', margin: '1.1rem', borderRadius: '5px', fontWeight: 'bolder' };
 
@@ -23,13 +28,28 @@ class InvestmentKnowledge extends React.Component {
         <Grid columns={1}>
           <Grid.Row width={16} centered>
             <Button.Group fluid vertical>
-              <Button style={buttonStyle} className="primary">
+              <Button
+                data-key="no"
+                style={buttonStyle}
+                className="primary"
+                onClick={this.setKnowledge}
+              >
                 No knowledge – I know virtually nothing about investing
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="average"
+                style={buttonStyle}
+                className="basic"
+                onClick={this.setKnowledge}
+              >
                 Somewhat knowledgeable - I have a fair understanding about investing
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="extensive"
+                style={buttonStyle}
+                className="basic"
+                onClick={this.setKnowledge}
+              >
                 Highly knowledgeable - I have a very good understanding about investing
               </Button>
           </Button.Group>
@@ -54,6 +74,7 @@ InvestmentKnowledge.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
   getNextQuestion: PropTypes.func.isRequired,
+  setKnowledge: PropTypes.func.isRequired,
 };
 
 export default InvestmentKnowledge;

@@ -6,12 +6,17 @@ class InvestmentExperience extends React.Component {
   constructor(props) {
     super(props);
     this.onComplete = this.onComplete.bind(this);
+    this.setExperience = this.setExperience.bind(this);
   }
 
   onComplete() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
-
   }
+
+  setExperience(event) {
+    this.props.setExperience(event.target.getAttribute('data-key'));
+  }
+
   render() {
     const buttonStyle = {
       border: 'solid 1px steelblue',
@@ -28,16 +33,31 @@ class InvestmentExperience extends React.Component {
         <Grid columns={1}>
           <Grid.Row width={16} centered>
             <Button.Group fluid vertical>
-              <Button style={buttonStyle} className="primary">
+              <Button
+                data-key="none"
+                style={buttonStyle}
+                className="primary"
+                onClick={this.setExperience}
+              >
                 Virtually none - I am new to the area of investing
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="moderate"
+                style={buttonStyle}
+                className="basic"
+                onClick={this.setExperience}
+              >
                 Moderate - I have some experience in investing in managed funds
               </Button>
-              <Button style={buttonStyle} className="basic">
+              <Button
+                data-key="extensive"
+                style={buttonStyle}
+                className="basic"
+                onClick={this.setExperience}
+              >
                 Extensive - I have invested in a variety of vehicles including direct
                 investments in stocks
-              </Button>
+            </Button>
           </Button.Group>
           </Grid.Row>
         </Grid>
@@ -60,6 +80,7 @@ InvestmentExperience.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
   getNextQuestion: PropTypes.func.isRequired,
+  setExperience: PropTypes.func.isRequired,
 };
 
 export default InvestmentExperience;
