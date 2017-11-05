@@ -31,7 +31,7 @@ class InvestmentKnowledge extends React.Component {
               <Button
                 data-key="no"
                 style={buttonStyle}
-                className={('no' === this.props.customerInfo.knowledge) ? 'primary' : 'basic'}
+                className={('no' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
                 No knowledge – I know virtually nothing about investing
@@ -39,7 +39,7 @@ class InvestmentKnowledge extends React.Component {
               <Button
                 data-key="average"
                 style={buttonStyle}
-                className={('average' === this.props.customerInfo.knowledge) ? 'primary' : 'basic'}
+                className={('average' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
                 Somewhat knowledgeable - I have a fair understanding about investing
@@ -47,7 +47,7 @@ class InvestmentKnowledge extends React.Component {
               <Button
                 data-key="extensive"
                 style={buttonStyle}
-                className={('extensive' === this.props.customerInfo.knowledge) ? 'primary' : 'basic'}
+                className={('extensive' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
                 Highly knowledgeable - I have a very good understanding about investing
@@ -73,6 +73,7 @@ class InvestmentKnowledge extends React.Component {
 InvestmentKnowledge.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
+  customerInfo: PropTypes.shape({investmentKnowledge: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   setKnowledge: PropTypes.func.isRequired,
 };

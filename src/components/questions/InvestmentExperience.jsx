@@ -37,7 +37,7 @@ class InvestmentExperience extends React.Component {
               <Button
                 data-key="none"
                 style={buttonStyle}
-                className={('none' === this.props.customerInfo.experience) ? 'primary' : 'basic'}
+                className={('none' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
                 Virtually none - I am new to the area of investing
@@ -45,7 +45,7 @@ class InvestmentExperience extends React.Component {
               <Button
                 data-key="moderate"
                 style={buttonStyle}
-                className={('moderate' === this.props.customerInfo.experience) ? 'primary' : 'basic'}
+                className={('moderate' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
                 Moderate - I have some experience in investing in managed funds
@@ -53,7 +53,7 @@ class InvestmentExperience extends React.Component {
               <Button
                 data-key="extensive"
                 style={buttonStyle}
-                className={('extensive' === this.props.customerInfo.experience) ? 'primary' : 'basic'}
+                className={('extensive' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
                 Extensive - I have invested in a variety of vehicles including direct
@@ -80,7 +80,7 @@ class InvestmentExperience extends React.Component {
 InvestmentExperience.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  customerInfo: PropTypes.shape({ experience:PropTypes.string.isRequired }),
+  customerInfo: PropTypes.shape({ investmentExperience:PropTypes.string.isRequired }),
   getNextQuestion: PropTypes.func.isRequired,
   setExperience: PropTypes.func.isRequired,
 };
