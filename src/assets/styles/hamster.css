@@ -32,6 +32,7 @@ body {
     border-bottom: solid 1px skyblue;
     width: 4rem;
     padding: 0.7rem;
+    color: blue;
 }
 
 .underlineTextBox:focus {

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WelcomePage from '../home/WelcomePage';
 import Age from './Age';
+import InvestmentKnowledge from './InvestmentKnowledge';
+import InvestmentExperience from './InvestmentExperience';
+import NumberOfYears from './NumberOfYears';
 
 class Questions extends React.Component {
   constructor(props) {
@@ -11,7 +14,10 @@ class Questions extends React.Component {
       byName: {
         0: WelcomePage,
         1: Age,
-        2: WelcomePage,
+        2: InvestmentKnowledge,
+        3: InvestmentExperience,
+        4: NumberOfYears,
+        5: WelcomePage,
       },
     };
   }
