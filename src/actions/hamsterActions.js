@@ -49,3 +49,10 @@ export function setInvestmentHorizon(investmentHorizon) {
   };
 }
 
+export function setAssetType(assetType) {
+  return {
+    type: actions.SET_ASSET_TYPE,
+    assetType,
+  };
+}
+

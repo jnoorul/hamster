@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   qnNumber: state.uiState.qnNumber,
   totalQns: state.uiState.totalQns,
   customerInfo: state.customerInfo,
+  assetType: state.portfolioInfo.assetType,
 });
 
 const mapDispatchToProps = (dispatch) => {
