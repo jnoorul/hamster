@@ -8,7 +8,7 @@ import roboImage from '../../assets/images/robots.jpg';
 export default function WelcomePage() {
   return (
     <div className="welcomePage">
-      <Grid columns={3}>
+      <Grid columns={3} style={{ margin: '0' }}>
         <Grid.Row>
           <Grid.Column width={2} />
           <Grid.Column width={12}>
@@ -23,12 +23,10 @@ export default function WelcomePage() {
             </Header>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={7} />
-          <Grid.Column width={2}>
-            <Button size="large" primary> Get Started </Button>
+        <Grid.Row centered>
+          <Grid.Column width={3}>
+            <Button size="large" primary style={{ margin: 'auto', width: '90%' }}> Get Started </Button>
           </Grid.Column>
-          <Grid.Column width={7} />
         </Grid.Row>
       </Grid>
     </div>
