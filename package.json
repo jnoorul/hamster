@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "antd": "^2.13.8",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -12,6 +14,7 @@
     "highcharts-drilldown": "^0.1.2",
     "highcharts-more": "^0.1.2",
     "material-ui": "^0.19.4",
+    "nexmo": "^2.0.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
