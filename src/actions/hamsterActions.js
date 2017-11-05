@@ -21,14 +21,6 @@ export function setQuestionNumber(qnNumber) {
   };
 }
 
-
-export function setCurrentPage(pageName) {
-  return {
-    type: actions.SET_CURRENT_PAGE,
-    currentPage: pageName,
-  };
-}
-
 export function setAge(age) {
   return {
     type: actions.SET_AGE,

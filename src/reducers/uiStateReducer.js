@@ -8,8 +8,6 @@ export default function uiStateReducer(state = {
   switch (action.type) {
     case actions.SET_QUESTION_NUMBER:
       return Object.assign({}, state, { qnNumber: action.qnNumber });
-    case actions.SET_CURRENT_PAGE:
-      return Object.assign({}, state, { currentPage: action.currentPage });
     default:
       return state;
   }

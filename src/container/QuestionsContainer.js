@@ -6,7 +6,6 @@ import Questions from '../components/questions/Questions';
 const mapStateToProps = state => ({
   qnNumber: state.uiState.qnNumber,
   totalQns: state.uiState.totalQns,
-  currentPage: state.uiState.currentPage,
   customerInfo: state.customerInfo,
 });
 
