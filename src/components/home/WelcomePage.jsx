@@ -12,7 +12,7 @@ class WelcomePage extends React.Component {
   }
 
   onComplete() {
-    this.props.complete(this.props.qnNumber, this.props.totalQns);
+    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
   render() {
@@ -54,7 +54,7 @@ class WelcomePage extends React.Component {
 WelcomePage.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  complete: PropTypes.func.isRequired,
+  getNextQuestion: PropTypes.func.isRequired,
 };
 
 export default WelcomePage;

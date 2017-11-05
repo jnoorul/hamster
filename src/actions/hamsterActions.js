@@ -28,3 +28,10 @@ export function setCurrentPage(pageName) {
     currentPage: pageName,
   };
 }
+
+export function setAge(age) {
+  return {
+    type: actions.SET_AGE,
+    age,
+  };
+}

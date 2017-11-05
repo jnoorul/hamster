@@ -30,11 +30,7 @@ class Questions extends React.Component {
     const ComponentToRender = this.getComponentToRender();
     return (
       <div>
-        <ComponentToRender
-          qnNumber={this.props.qnNumber}
-          totalQns={this.props.totalQns}
-          complete={this.props.getNextQuestion}
-        />
+        <ComponentToRender {...this.props} />
       </div>
     );
   }
