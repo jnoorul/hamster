@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Progress } from 'semantic-ui-react';
 import roboThinkImg from '../../assets/images/robo-think.gif';
+import ActionBar from '../home/ActionBar';
 
 class CustomerProfiling extends React.Component {
   constructor(props) {
@@ -62,21 +63,7 @@ class CustomerProfiling extends React.Component {
           progress
           style={{ width: '40%', margin: 'auto' }}
         />
-        <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
-          <Button
-            labelPosition="left"
-            icon="left chevron"
-            content="Previous"
-            onClick={this.getPrev}
-          />
-          <Button
-            color="teal"
-            onClick={this.onComplete}
-            labelPosition="right"
-            icon="right chevron"
-            content="Next"
-          />
-        </Button.Group>
+        <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
       </div>
     );
   }

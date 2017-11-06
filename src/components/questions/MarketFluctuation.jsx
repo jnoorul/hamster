@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button, Grid } from 'semantic-ui-react';
+import ActionBar from '../home/ActionBar';
 
 class MarketFluctuation extends React.Component {
   constructor(props) {
@@ -68,21 +69,7 @@ class MarketFluctuation extends React.Component {
           </Button.Group>
           </Grid.Row>
         </Grid>
-        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button
-            labelPosition="left"
-            icon="left chevron"
-            content="Previous"
-            onClick={this.getPrev}
-          />
-          <Button
-            color="teal"
-            onClick={this.onComplete}
-            labelPosition="right"
-            icon="right chevron"
-            content="Next"
-          />
-        </Button.Group>
+        <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
       </div>
     );
   }

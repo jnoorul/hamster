@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button } from 'semantic-ui-react';
+import ActionBar from '../home/ActionBar';
 
 class AgeQuestion extends React.Component {
   constructor(props) {
@@ -38,15 +39,7 @@ class AgeQuestion extends React.Component {
             style={{ width: '10rem' }}
           />
         </h1>
-        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button
-            color="teal"
-            onClick={this.onComplete}
-            labelPosition="right"
-            icon="right chevron"
-            content="Next"
-          />
-        </Button.Group>
+        <ActionBar next getNext={this.onComplete} />
       </div>
     );
   }

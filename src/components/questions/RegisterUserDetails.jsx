@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Grid, Input, Label } from 'semantic-ui-react';
+import ActionBar from '../home/ActionBar';
 
 class RegisterUserDetails extends React.Component {
   constructor(props) {
@@ -57,21 +58,7 @@ class RegisterUserDetails extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>/
-        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button
-            labelPosition="left"
-            icon="left chevron"
-            content="Previous"
-            onClick={this.getPrev}
-          />
-          <Button
-            color="teal"
-            onClick={this.getNext}
-            labelPosition="right"
-            icon="right chevron"
-            content="Next"
-          />
-        </Button.Group>
+        <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
       </div>
     );
   }
