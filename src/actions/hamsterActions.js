@@ -73,6 +73,13 @@ export function setTotalRiskScore(totalRiskScore) {
   };
 }
 
+export function setExpectedReturn(expectedReturn) {
+  return {
+    type: actions.SET_EXPECTED_RETURN,
+    expectedReturn,
+  };
+}
+
 export function setAssetType(assetType) {
   return {
     type: actions.SET_ASSET_TYPE,

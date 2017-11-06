@@ -25,7 +25,7 @@ class CustomerProfiling extends React.Component {
       return (
         <div className="mainContent">
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
-            Customer Profiling In Progress...
+            Customer Profiling is in progress...
           </h1>
           <img className="roboImage" style={{ height: '250px', width: '180px' }} src={roboThinkImg} alt="image not available" />
         </div>);

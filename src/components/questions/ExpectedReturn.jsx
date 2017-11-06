@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button, Grid } from 'semantic-ui-react';
 
-class InvestmentHorizon extends React.Component {
+class ExpectedReturn extends React.Component {
   constructor(props) {
     super(props);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
-    this.setInvestmentHorizon = this.setInvestmentHorizon.bind(this);
+    this.setExpectedReturn = this.setExpectedReturn.bind(this);
   }
 
   getNext() {
@@ -19,8 +19,8 @@ class InvestmentHorizon extends React.Component {
     this.props.getPreviousQuestion(this.props.qnNumber);
   }
 
-  setInvestmentHorizon(event) {
-    this.props.setInvestmentHorizon(event.target.getAttribute('data-key'));
+  setExpectedReturn(event) {
+    this.props.setExpectedReturn(event.target.getAttribute('data-key'));
     // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
@@ -30,46 +30,45 @@ class InvestmentHorizon extends React.Component {
       margin: '1.1rem',
       borderRadius: '5px',
       fontWeight: 'bolder',
-      width: '25rem',
-      fontSize: '1.3rem'
+      fontSize: '1.3rem',
     };
 
     return (
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
-          How long do you plan to keep your money invested for?
+          Your attitude towards risk and return,
         </h1>
         <Grid columns={1}>
           <Grid.Row width={16} centered>
             <Button.Group vertical>
               <Button
-                data-key="0"
+                data-key="conservative"
                 style={buttonStyle}
-                className={('0' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('conservative' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
+                onClick={this.setExpectedReturn}
               >
-                Less than 5 years
+                Very conservative - you are not much of a risk taker and accept lower returns
               </Button>
               <Button
-                data-key="5"
+                data-key="moderate"
                 style={buttonStyle}
-                className={('5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('moderate' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
+                onClick={this.setExpectedReturn}
               >
-                5 to 10 years
+                Moderate - You are willing to take moderate risk to improve returns
               </Button>
               <Button
-                data-key="10"
+                data-key="aggressive"
                 style={buttonStyle}
-                className={('10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('aggressive' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
+                onClick={this.setExpectedReturn}
               >
-                More than 10 years
+                Aggressive - You are willing to take a high level of risk to maximise returns
               </Button>
             </Button.Group>
           </Grid.Row>
         </Grid>
-        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
+        <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
           <Button
             labelPosition="left"
             icon="left chevron"
@@ -89,13 +88,13 @@ class InvestmentHorizon extends React.Component {
   }
 }
 
-InvestmentHorizon.propTypes = {
+ExpectedReturn.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  customerInfo: PropTypes.shape({investmentHorizon: PropTypes.string}).isRequired,
+  customerInfo: PropTypes.shape({ expectedReturn: PropTypes.string }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
-  setInvestmentHorizon: PropTypes.func.isRequired,
+  setExpectedReturn: PropTypes.func.isRequired,
 };
 
-export default InvestmentHorizon;
+export default ExpectedReturn;
