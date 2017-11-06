@@ -11,7 +11,10 @@ class MarketFluctuation extends React.Component {
   }
 
   onComplete() {
-    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    this.props.saveCustomerInfo(this.props.customerInfo);
+    setTimeout(() => {
+      this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    }, 1000);
   }
 
   getPrev() {
@@ -29,7 +32,7 @@ class MarketFluctuation extends React.Component {
       margin: '1.1rem',
       borderRadius: '5px',
       fontWeight: 'bolder',
-      fontSize: '1.3rem'
+      fontSize: '1.3rem',
     };
 
     return (
@@ -93,6 +96,7 @@ MarketFluctuation.propTypes = {
   customerInfo: PropTypes.shape({reactionToFluctuations: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
+  saveCustomerInfo: PropTypes.func.isRequired,
   setReactionToFluctuation: PropTypes.func.isRequired,
 };
 

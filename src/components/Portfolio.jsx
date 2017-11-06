@@ -1,7 +1,9 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import PortfolioDivision from '../assets/PortfolioBreakdown'
 import ReactHighCharts from 'react-highcharts';
 import AssetDetails from './AssetDetails'
+import roboThinkImg from '../assets/images/robo-think.gif';
 
 
 class Portfolio extends React.Component {
@@ -9,11 +11,16 @@ class Portfolio extends React.Component {
         super(props);
 
      this.setAssetType = this.setAssetType.bind(this);
+     this.getPrev = this.getPrev.bind(this);
 
     }
 
     setAssetType = (e) => {
         this.props.setAssetType(e.point.name)
+    };
+
+    getPrev() {
+      this.props.getPreviousQuestion(this.props.qnNumber);
     }
 
     getPortfolioDetails = () => {
@@ -56,6 +63,34 @@ class Portfolio extends React.Component {
 
 
     render() {
+
+      if (this.props.uiState.getPortfolioStatus === 'inprogress') {
+        return (
+          <div className="mainContent">
+              <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
+                  Portfolio construction is in progress...
+              </h1>
+              <img className="roboImage" style={{ height: '250px', width: '180px' }} src={roboThinkImg} alt="image not available" />
+          </div>);
+      }
+
+      if (this.props.uiState.getPortfolioStatus === 'failure') {
+        return (
+          <div className="mainContent">
+              <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
+                  OOPS! Something went wrong!!
+              </h1>
+            {/* <Label basic>{this.props.uiState.err}</Label> */}
+              <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
+                  <Button
+                    labelPosition="left"
+                    icon="left chevron"
+                    content="Previous"
+                    onClick={this.getPrev}
+                  />
+              </Button.Group>
+          </div>);
+      }
 
         const config = {
             chart: {

@@ -22,9 +22,9 @@ class Questions extends React.Component {
         3: InvestmentExperience,
         4: InvestmentHorizon,
         5: MarketFluctuation,
-        6: RegisterUserDetails,
-        7: CustomerProfiling,
-        8: Portfolio,
+        6: CustomerProfiling,
+        7: Portfolio,
+        8: RegisterUserDetails,
       },
     };
   }

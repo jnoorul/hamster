@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Button, Label } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import roboThinkImg from '../../assets/images/robo-think.gif';
 
 class CustomerProfiling extends React.Component {
@@ -11,6 +11,7 @@ class CustomerProfiling extends React.Component {
   }
 
   onComplete() {
+    this.props.getPortfolioInfo(this.props.customerInfo.totalRiskScore);
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
@@ -36,7 +37,7 @@ class CustomerProfiling extends React.Component {
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
             OOPS! Something went wrong!!
           </h1>
-          {/*<Label basic>{this.props.uiState.err}</Label>*/}
+          {/* <Label basic>{this.props.uiState.err}</Label> */}
           <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
             <Button
               labelPosition="left"
@@ -81,6 +82,7 @@ CustomerProfiling.propTypes = {
   customerInfo: PropTypes.shape({ totalRiskScore: PropTypes.number }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
+  getPortfolioInfo: PropTypes.func.isRequired,
 };
 
 export default CustomerProfiling;

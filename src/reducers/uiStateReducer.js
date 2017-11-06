@@ -13,6 +13,12 @@ export default function uiStateReducer(state = {
       return Object.assign({}, state, { saveCustomerStatus: 'success' });
     case actions.CUSTOMER_INFO_SAVE_FAILURE:
       return Object.assign({}, state, { saveCustomerStatus: 'failure', err: action.err });
+    case actions.GET_PORTFOLIO_INFO_REQUEST:
+      return Object.assign({}, state, { getPortfolioStatus: 'inprogress' });
+    case actions.GET_PORTFOLIO_INFO_SUCCESS:
+      return Object.assign({}, state, { getPortfolioStatus: 'success' });
+    case actions.GET_PORTFOLIO_INFO_FAILURE:
+      return Object.assign({}, state, { getPortfolioStatus: 'failure', err: action.err });
     default:
       return state;
   }

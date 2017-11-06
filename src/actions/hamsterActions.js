@@ -99,6 +99,25 @@ export function saveCustomerFailure(err) {
   };
 }
 
+export function getPortfolioInfoRequest() {
+  return {
+    type: actions.GET_PORTFOLIO_INFO_REQUEST,
+  };
+}
+
+export function getPortfolioInfoSuccess() {
+  return {
+    type: actions.GET_PORTFOLIO_INFO_SUCCESS,
+  };
+}
+
+export function getPortfolioInfoFailure(err) {
+  return {
+    type: actions.GET_PORTFOLIO_INFO_FAILURE,
+    err,
+  };
+}
+
 export function setPorfolioInfo(portfolioInfo) {
   return {
     type: actions.SET_PORTFOLIO_INFO,
@@ -122,8 +141,27 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
     // dispatch(setPorfolioInfo(jsonRes.portfolio));
   }).catch((err) => {
     setTimeout(() => {
-      dispatch(saveCustomerFailure(err));
+      dispatch(saveCustomerFailure(err.message));
     }, 3000);
+  });
+}
+
+export function getPortfolioInfoWithDispatch(dispatch, totalRiskScore) {
+  dispatch(getPortfolioInfoRequest());
+  fetch(`${hamsterServerUrl}/portfolio/suggest/${totalRiskScore}`, {
+    method: 'GET',
+    headers: new Headers({ 'content-type': 'application/json' }),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    setTimeout(() => {
+      dispatch(setPorfolioInfo(jsonRes));
+      dispatch(getPortfolioInfoSuccess());
+    }, 1000);
+  }).catch((err) => {
+    setTimeout(() => {
+      dispatch(getPortfolioInfoFailure(err.message));
+    }, 1000);
   });
 }
 
