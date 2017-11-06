@@ -144,12 +144,12 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
     setTimeout(() => {
       dispatch(setTotalRiskScore(jsonRes.totalRiskScore));
       dispatch(saveCustomerSuccess());
-    }, 3000);
+    }, 1500);
     // dispatch(setPorfolioInfo(jsonRes.portfolio));
   }).catch((err) => {
     setTimeout(() => {
       dispatch(saveCustomerFailure(err.message));
-    }, 3000);
+    }, 1500);
   });
 }
 

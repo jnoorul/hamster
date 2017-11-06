@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import { Button, Progress } from 'semantic-ui-react';
 import roboThinkImg from '../../assets/images/robo-think.gif';
 
 class CustomerProfiling extends React.Component {
@@ -53,8 +53,15 @@ class CustomerProfiling extends React.Component {
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
           Customer Profiling successfuly completed. <br />
-          Your Risk Score is {this.props.customerInfo.totalRiskScore} / 50
+          Your Risk Score is {this.props.customerInfo.totalRiskScore * 2} / 100
         </h1>
+        <Progress
+          percent={this.props.customerInfo.totalRiskScore * 2}
+          size="medium"
+          color="green"
+          progress
+          style={{ width: '40%', margin: 'auto' }}
+        />
         <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
           <Button
             labelPosition="left"

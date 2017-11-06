@@ -41,9 +41,9 @@ class InvestmentKnowledge extends React.Component {
           <Grid.Row width={16} centered>
             <Button.Group fluid vertical>
               <Button
-                data-key="no"
+                data-key="none"
                 style={buttonStyle}
-                className={('no' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
+                className={('none' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
                 No knowledge – I know virtually nothing about investing

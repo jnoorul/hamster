@@ -43,25 +43,25 @@ class InvestmentHorizon extends React.Component {
           <Grid.Row width={16} centered>
             <Button.Group vertical>
               <Button
-                data-key="0"
+                data-key="0-5"
                 style={buttonStyle}
-                className={('0' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('0-5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 Less than 5 years
               </Button>
               <Button
-                data-key="5"
+                data-key="5-10"
                 style={buttonStyle}
-                className={('5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('5-10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 5 to 10 years
               </Button>
               <Button
-                data-key="10"
+                data-key="10-200"
                 style={buttonStyle}
-                className={('10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
+                className={('10-200' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
                 More than 10 years

@@ -50,9 +50,9 @@ class InvestmentExperience extends React.Component {
                 Virtually none - I am new to the area of investing
               </Button>
               <Button
-                data-key="moderate"
+                data-key="average"
                 style={buttonStyle}
-                className={('moderate' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
+                className={('average' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
                 Moderate - I have some experience in investing in managed funds

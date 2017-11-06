@@ -12,9 +12,7 @@ class MarketFluctuation extends React.Component {
 
   onComplete() {
     this.props.saveCustomerInfo(this.props.customerInfo);
-    setTimeout(() => {
-      this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
-    }, 1000);
+    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
   getPrev() {
