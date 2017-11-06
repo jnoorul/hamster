@@ -98,7 +98,7 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
   fetch(`${hamsterServerUrl}/customer/insert`, {
     method: 'POST',
     headers: new Headers({ 'content-type': 'application/json' }),
-    body: customerInfo,
+    body: JSON.stringify(customerInfo),
   }).then((res) => {
     return res.json();
   }).then((jsonRes) => {

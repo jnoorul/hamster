@@ -88,3 +88,4 @@ RegisterUserDetails.propTypes = {
 };
 
 export default RegisterUserDetails;
+
