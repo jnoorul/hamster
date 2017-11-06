@@ -16,6 +16,7 @@ class InvestmentExperience extends React.Component {
 
   setExperience(event) {
     this.props.setExperience(event.target.getAttribute('data-key'));
+    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {

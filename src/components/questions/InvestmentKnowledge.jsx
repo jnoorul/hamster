@@ -15,6 +15,7 @@ class InvestmentKnowledge extends React.Component {
 
   setKnowledge(event) {
     this.props.setKnowledge(event.target.getAttribute('data-key'));
+    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {

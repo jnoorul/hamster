@@ -15,6 +15,7 @@ class NumberOfYears extends React.Component {
 
   setInvestmentHorizon(event) {
     this.props.setInvestmentHorizon(event.target.getAttribute('data-key'));
+    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {
