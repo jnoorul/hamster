@@ -12,7 +12,7 @@ export default function uiStateReducer(state = {
     case actions.CUSTOMER_INFO_SAVE_SUCCESS:
       return Object.assign({}, state, { saveCustomerStatus: 'success' });
     case actions.CUSTOMER_INFO_SAVE_FAILURE:
-      return Object.assign({}, state, { saveCustomerStatus: 'failure' });
+      return Object.assign({}, state, { saveCustomerStatus: 'failure', err: action.err });
     default:
       return state;
   }

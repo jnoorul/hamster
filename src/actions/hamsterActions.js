@@ -108,18 +108,22 @@ export function setPorfolioInfo(portfolioInfo) {
 
 export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
   dispatch(saveCustomerRequest());
-  fetch(`${hamsterServerUrl}/customer/insert`, {
+  fetch(`${hamsterServerUrl}/customer/riskscore`, {
     method: 'POST',
     headers: new Headers({ 'content-type': 'application/json' }),
     body: JSON.stringify(customerInfo),
   }).then((res) => {
     return res.json();
   }).then((jsonRes) => {
-    dispatch(setTotalRiskScore(jsonRes.customer.totalRiskScore));
-    dispatch(saveCustomerSuccess());
-    dispatch(setPorfolioInfo(jsonRes.portfolio));
+    setTimeout(() => {
+      dispatch(setTotalRiskScore(jsonRes.totalRiskScore));
+      dispatch(saveCustomerSuccess());
+    }, 3000);
+    // dispatch(setPorfolioInfo(jsonRes.portfolio));
   }).catch((err) => {
-    dispatch(saveCustomerFailure(err));
+    setTimeout(() => {
+      dispatch(saveCustomerFailure(err));
+    }, 3000);
   });
 }
 

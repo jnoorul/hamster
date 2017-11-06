@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Button } from 'semantic-ui-react';
+import { Icon, Button, Label } from 'semantic-ui-react';
+import roboThinkImg from '../../assets/images/robo-think.gif';
 
 class CustomerProfiling extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class CustomerProfiling extends React.Component {
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
             Customer Profiling In Progress...
           </h1>
+          <img className="roboImage" style={{ height: '250px', width: '180px' }} src={roboThinkImg} alt="image not available" />
         </div>);
     }
 
@@ -34,6 +36,15 @@ class CustomerProfiling extends React.Component {
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
             OOPS! Something went wrong!!
           </h1>
+          {/*<Label basic>{this.props.uiState.err}</Label>*/}
+          <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
+            <Button
+              labelPosition="left"
+              icon="left chevron"
+              content="Previous"
+              onClick={this.getPrev}
+            />
+          </Button.Group>
         </div>);
     }
 
@@ -66,7 +77,7 @@ class CustomerProfiling extends React.Component {
 CustomerProfiling.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  uiState: PropTypes.shape({ saveCustomerStatus: PropTypes.string}).isRequired,
+  uiState: PropTypes.shape({ saveCustomerStatus: PropTypes.string, err: PropTypes.object }).isRequired,
   customerInfo: PropTypes.shape({ totalRiskScore: PropTypes.number }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
