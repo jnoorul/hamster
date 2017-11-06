@@ -39,6 +39,11 @@ body {
     outline: none;
 }
 
+.buttonGrpPrevNext {
+    position: absolute;
+    right: 6rem;
+    margin-top: 2rem;
+}
 
 .customerInfo {
     margin-top: 2rem;

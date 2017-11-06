@@ -62,7 +62,7 @@ class InvestmentKnowledge extends React.Component {
           </Button.Group>
           </Grid.Row>
         </Grid>
-        <Button.Group style={{ position: 'absolute', right: '6rem' }}>
+        <Button.Group className="buttonGrpPrevNext">
           <Button labelPosition="left" icon="left chevron" content="Previous" />
           <Button
             color="teal"

@@ -20,11 +20,11 @@ class WelcomePage extends React.Component {
       <div className="mainContent">
         <Grid columns={3} style={{ margin: '0' }}>
           <Grid.Row>
-            <Grid.Column width={2} />
-            <Grid.Column width={12}>
+            <Grid.Column width={0} />
+            <Grid.Column width={16}>
               <img className="roboImage" src={roboImage} alt="image not available" />
             </Grid.Column>
-            <Grid.Column width={2} />
+            <Grid.Column width={0} />
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width={16}>
