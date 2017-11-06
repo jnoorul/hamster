@@ -6,12 +6,17 @@ import { Icon, Button, Grid } from 'semantic-ui-react';
 class InvestmentExperience extends React.Component {
   constructor(props) {
     super(props);
-    this.onComplete = this.onComplete.bind(this);
+    this.getNext = this.getNext.bind(this);
+    this.getPrev = this.getPrev.bind(this);
     this.setExperience = this.setExperience.bind(this);
   }
 
-  onComplete() {
+  getNext() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+  }
+
+  getPrev() {
+    this.props.getPreviousQuestion(this.props.qnNumber);
   }
 
   setExperience(event) {
@@ -65,10 +70,15 @@ class InvestmentExperience extends React.Component {
           </Grid.Row>
         </Grid>
         <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button labelPosition="left" icon="left chevron" content="Previous"/>
+          <Button
+            labelPosition="left"
+            icon="left chevron"
+            content="Previous"
+            onClick={this.getPrev}
+          />
           <Button
             color="teal"
-            onClick={this.onComplete}
+            onClick={this.getNext}
             labelPosition="right"
             icon="right chevron"
             content="Next"
@@ -84,6 +94,7 @@ InvestmentExperience.propTypes = {
   totalQns: PropTypes.number.isRequired,
   customerInfo: PropTypes.shape({ investmentExperience:PropTypes.string.isRequired }),
   getNextQuestion: PropTypes.func.isRequired,
+  getPreviousQuestion: PropTypes.func.isRequired,
   setExperience: PropTypes.func.isRequired,
 };
 

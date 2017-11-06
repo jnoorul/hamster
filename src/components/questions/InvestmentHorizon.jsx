@@ -5,12 +5,17 @@ import { Icon, Button, Grid } from 'semantic-ui-react';
 class NumberOfYears extends React.Component {
   constructor(props) {
     super(props);
-    this.onComplete = this.onComplete.bind(this);
+    this.getNext = this.getNext.bind(this);
+    this.getPrev = this.getPrev.bind(this);
     this.setInvestmentHorizon = this.setInvestmentHorizon.bind(this);
   }
 
-  onComplete() {
+  getNext() {
     this.props.saveCustomerInfo(this.props.customerInfo);
+  }
+
+  getPrev() {
+    this.props.getPreviousQuestion(this.props.qnNumber);
   }
 
   setInvestmentHorizon(event) {
@@ -64,10 +69,15 @@ class NumberOfYears extends React.Component {
           </Grid.Row>
         </Grid>
         <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button labelPosition="left" icon="left chevron" content="Previous" />
+          <Button
+            labelPosition="left"
+            icon="left chevron"
+            content="Previous"
+            onClick={this.getPrev}
+          />
           <Button
             color="teal"
-            onClick={this.onComplete}
+            onClick={this.getNext}
             labelPosition="right"
             icon="right chevron"
             content="ShowPortfolio"
@@ -83,6 +93,7 @@ NumberOfYears.propTypes = {
   totalQns: PropTypes.number.isRequired,
   customerInfo: PropTypes.shape({investmentHorizon: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
+  getPreviousQuestion: PropTypes.func.isRequired,
   setInvestmentHorizon: PropTypes.func.isRequired,
 };
 

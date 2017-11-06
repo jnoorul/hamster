@@ -21,11 +21,18 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 
+  const getPreviousQuestion = (currentQn) => {
+    const nextQn = currentQn - 1;
+    if (nextQn >= 0) {
+      boundActionCreators.setQuestionNumber(nextQn);
+    }
+  };
+
   const saveCustomerInfo = (customerInfo) => {
     saveCustomerInfoWithDispatch(dispatch, customerInfo);
   };
 
-  return { getNextQuestion, saveCustomerInfo, ...boundActionCreators };
+  return { getNextQuestion, getPreviousQuestion, saveCustomerInfo, ...boundActionCreators };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Questions);

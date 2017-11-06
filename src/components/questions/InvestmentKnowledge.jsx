@@ -6,11 +6,16 @@ class InvestmentKnowledge extends React.Component {
   constructor(props) {
     super(props);
     this.onComplete = this.onComplete.bind(this);
+    this.getPrev = this.getPrev.bind(this);
     this.setKnowledge = this.setKnowledge.bind(this);
   }
 
   onComplete() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+  }
+
+  getPrev() {
+    this.props.getPreviousQuestion(this.props.qnNumber);
   }
 
   setKnowledge(event) {
@@ -63,7 +68,12 @@ class InvestmentKnowledge extends React.Component {
           </Grid.Row>
         </Grid>
         <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
-          <Button labelPosition="left" icon="left chevron" content="Previous" />
+          <Button
+            labelPosition="left"
+            icon="left chevron"
+            content="Previous"
+            onClick={this.getPrev}
+          />
           <Button
             color="teal"
             onClick={this.onComplete}
@@ -82,6 +92,7 @@ InvestmentKnowledge.propTypes = {
   totalQns: PropTypes.number.isRequired,
   customerInfo: PropTypes.shape({investmentKnowledge: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
+  getPreviousQuestion: PropTypes.func.isRequired,
   setKnowledge: PropTypes.func.isRequired,
 };
 
