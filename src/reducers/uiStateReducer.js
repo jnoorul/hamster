@@ -7,6 +7,12 @@ export default function uiStateReducer(state = {
   switch (action.type) {
     case actions.SET_QUESTION_NUMBER:
       return Object.assign({}, state, { qnNumber: action.qnNumber });
+    case actions.CUSTOMER_INFO_SAVE_REQUEST:
+      return Object.assign({}, state, { saveCustomerStatus: 'inprogress' });
+    case actions.CUSTOMER_INFO_SAVE_SUCCESS:
+      return Object.assign({}, state, { saveCustomerStatus: 'success' });
+    case actions.CUSTOMER_INFO_SAVE_FAILURE:
+      return Object.assign({}, state, { saveCustomerStatus: 'failure' });
     default:
       return state;
   }

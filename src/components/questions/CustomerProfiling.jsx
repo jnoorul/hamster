@@ -19,6 +19,24 @@ class CustomerProfiling extends React.Component {
   }
 
   render() {
+    if (this.props.uiState.saveCustomerStatus === 'inprogress') {
+      return (
+        <div className="mainContent">
+          <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
+            Customer Profiling In Progress...
+          </h1>
+        </div>);
+    }
+
+    if (this.props.uiState.saveCustomerStatus === 'failure') {
+      return (
+        <div className="mainContent">
+          <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
+            OOPS! Something went wrong!!
+          </h1>
+        </div>);
+    }
+
     return (
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
@@ -48,6 +66,7 @@ class CustomerProfiling extends React.Component {
 CustomerProfiling.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
+  uiState: PropTypes.shape({ saveCustomerStatus: PropTypes.string}).isRequired,
   customerInfo: PropTypes.shape({ totalRiskScore: PropTypes.number }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,

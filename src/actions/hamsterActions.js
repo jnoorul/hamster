@@ -80,10 +80,22 @@ export function setAssetType(assetType) {
   };
 }
 
-export function saveCustomerSuccess(customerInfo) {
+export function saveCustomerRequest() {
+  return {
+    type: actions.CUSTOMER_INFO_SAVE_REQUEST,
+  };
+}
+
+export function saveCustomerSuccess() {
   return {
     type: actions.CUSTOMER_INFO_SAVE_SUCCESS,
-    customerInfo,
+  };
+}
+
+export function saveCustomerFailure(err) {
+  return {
+    type: actions.CUSTOMER_INFO_SAVE_FAILURE,
+    err,
   };
 }
 
@@ -95,6 +107,7 @@ export function setPorfolioInfo(portfolioInfo) {
 }
 
 export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
+  dispatch(saveCustomerRequest());
   fetch(`${hamsterServerUrl}/customer/insert`, {
     method: 'POST',
     headers: new Headers({ 'content-type': 'application/json' }),
@@ -103,7 +116,10 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
     return res.json();
   }).then((jsonRes) => {
     dispatch(setTotalRiskScore(jsonRes.customer.totalRiskScore));
+    dispatch(saveCustomerSuccess());
     dispatch(setPorfolioInfo(jsonRes.portfolio));
+  }).catch((err) => {
+    dispatch(saveCustomerFailure(err));
   });
 }
 
