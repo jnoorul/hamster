@@ -15,15 +15,21 @@ class InvestmentKnowledge extends React.Component {
 
   setKnowledge(event) {
     this.props.setKnowledge(event.target.getAttribute('data-key'));
-    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
+    // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {
-    const buttonStyle = { border: 'solid 1px steelblue', margin: '1.1rem', borderRadius: '5px', fontWeight: 'bolder' };
+    const buttonStyle = {
+      border: 'solid 1px steelblue',
+      margin: '1.1rem',
+      borderRadius: '5px',
+      fontWeight: 'bolder',
+      fontSize: '1.3rem'
+    };
 
     return (
       <div className="mainContent">
-        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%' }}>
+        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           Tell us about your investment knowledge
         </h1>
         <Grid columns={1}>

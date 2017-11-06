@@ -16,7 +16,7 @@ class InvestmentExperience extends React.Component {
 
   setExperience(event) {
     this.props.setExperience(event.target.getAttribute('data-key'));
-    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
+    // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {
@@ -25,11 +25,12 @@ class InvestmentExperience extends React.Component {
       margin: '1.1rem',
       borderRadius: '5px',
       fontWeight: 'bolder',
+      fontSize: '1.3rem'
     };
 
     return (
       <div className="mainContent">
-        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%' }}>
+        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           Tell us about your investment experience
         </h1>
         <Grid columns={1}>

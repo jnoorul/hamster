@@ -15,7 +15,7 @@ class NumberOfYears extends React.Component {
 
   setInvestmentHorizon(event) {
     this.props.setInvestmentHorizon(event.target.getAttribute('data-key'));
-    setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
+    // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
   render() {
@@ -25,11 +25,12 @@ class NumberOfYears extends React.Component {
       borderRadius: '5px',
       fontWeight: 'bolder',
       width: '25rem',
+      fontSize: '1.3rem'
     };
 
     return (
       <div className="mainContent">
-        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%' }}>
+        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           How long do you plan to keep your money invested for?
         </h1>
         <Grid columns={1}>
