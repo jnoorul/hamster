@@ -62,7 +62,7 @@ class InvestmentKnowledge extends React.Component {
           </Button.Group>
           </Grid.Row>
         </Grid>
-        <Button.Group className="buttonGrpPrevNext">
+        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
           <Button labelPosition="left" icon="left chevron" content="Previous" />
           <Button
             color="teal"

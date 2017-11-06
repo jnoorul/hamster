@@ -38,7 +38,7 @@ class AgeQuestion extends React.Component {
             style={{ width: '10rem' }}
           />
         </h1>
-        <Button.Group style={{ position: 'absolute', right: '6rem' }}>
+        <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
           <Button
             color="teal"
             onClick={this.onComplete}
