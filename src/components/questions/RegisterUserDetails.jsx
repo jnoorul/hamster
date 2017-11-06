@@ -12,7 +12,10 @@ class RegisterUserDetails extends React.Component {
   }
 
   getNext() {
-    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    this.props.saveCustomerInfo(this.props.customerInfo);
+    setTimeout(() => {
+      this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    }, 1000);
   }
 
   getPrev() {
@@ -20,7 +23,7 @@ class RegisterUserDetails extends React.Component {
   }
 
   setUserId(event) {
-    this.props.setUserId(event.target.getAttribute('data-key'));
+    this.props.setUserId(event.target.value);
     // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
@@ -41,7 +44,11 @@ class RegisterUserDetails extends React.Component {
         <Grid columns={1} centered>
           <Grid.Row centered>
             <Grid.Column width={4}>
-              <Input label="User Name" />
+              <Input
+                label="User Name"
+                onChange={this.setUserId}
+                value={this.props.customerInfo.userId}
+              />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row centered>
@@ -76,6 +83,7 @@ RegisterUserDetails.propTypes = {
   customerInfo: PropTypes.shape({ userId:PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
+  saveCustomerInfo: PropTypes.func.isRequired,
   setUserId: PropTypes.func.isRequired,
 };
 

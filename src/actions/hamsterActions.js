@@ -59,6 +59,20 @@ export function setReactionToFluctuation(reactionToFluctuation) {
   };
 }
 
+export function setUserId(userId) {
+  return {
+    type: actions.SET_USER_ID,
+    userId,
+  };
+}
+
+export function setTotalRiskScore(totalRiskScore) {
+  return {
+    type: actions.SET_TOTAL_RISK_SCORE,
+    totalRiskScore,
+  };
+}
+
 export function setAssetType(assetType) {
   return {
     type: actions.SET_ASSET_TYPE,
@@ -73,6 +87,13 @@ export function saveCustomerSuccess(customerInfo) {
   };
 }
 
+export function setPorfolioInfo(portfolioInfo) {
+  return {
+    type: actions.SET_PORTFOLIO_INFO,
+    portfolioInfo,
+  };
+}
+
 export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
   fetch(`${hamsterServerUrl}/customer/insert`, {
     method: 'POST',
@@ -80,8 +101,9 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
     body: customerInfo,
   }).then((res) => {
     return res.json();
-  }).then((jsonRes)=> {
-    dispatch(saveCustomerSuccess(jsonRes));
+  }).then((jsonRes) => {
+    dispatch(setTotalRiskScore(jsonRes.customer.totalRiskScore));
+    dispatch(setPorfolioInfo(jsonRes.portfolio));
   });
 }
 

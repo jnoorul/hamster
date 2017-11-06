@@ -23,7 +23,7 @@ class CustomerProfiling extends React.Component {
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
           Customer Profiling successfuly completed. <br />
-          Your Risk Score is 7 / 10
+          Your Risk Score is {this.props.customerInfo.totalRiskScore} / 50
         </h1>
         <Button.Group className="buttonGrpPrevNext" style={{ marginTop: '2rem' }}>
           <Button
@@ -48,7 +48,7 @@ class CustomerProfiling extends React.Component {
 CustomerProfiling.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  customerInfo: PropTypes.shape({ riskScore: PropTypes.number }).isRequired,
+  customerInfo: PropTypes.shape({ totalRiskScore: PropTypes.number }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
 };
