@@ -26,7 +26,7 @@ class AlertSettings extends React.Component {
       <div className="mainContent">
         <Grid centered>
           <Grid.Row centered>
-            <Grid.Column width={6}>
+            <Grid.Column width={7}>
               <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
                 Configure Alert Settings
               </h1>
