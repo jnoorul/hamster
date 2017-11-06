@@ -87,6 +87,43 @@ export function setAssetType(assetType) {
   };
 }
 
+export function setAlertVia(alertVia) {
+  return {
+    type: actions.SET_ALERT_VIA,
+    alertVia,
+  };
+}
+
+export function setAlertPortfolioAbove(portfolioAbove) {
+  return {
+    type: actions.SET_ALERT_PORTFOLIO_ABOVE,
+    portfolioAbove,
+  };
+}
+
+export function setAlertPortfolioBelow(portfolioBelow) {
+  return {
+    type: actions.SET_ALERT_PORTFOLIO_BELOW,
+    portfolioBelow,
+  };
+}
+
+export function setAlertInstrumentAbove(instrumentAbove) {
+  return {
+    type: actions.SET_ALERT_INSTRUMENT_ABOVE,
+    instrumentAbove,
+  };
+}
+
+export function setAlertInstrumentBelow(instrumentBelow) {
+  return {
+    type: actions.SET_ALERT_INSTRUMENT_BELOW,
+    instrumentBelow,
+  };
+}
+
+
+
 export function saveCustomerRequest() {
   return {
     type: actions.CUSTOMER_INFO_SAVE_REQUEST,

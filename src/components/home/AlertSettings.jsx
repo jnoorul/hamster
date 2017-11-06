@@ -5,14 +5,31 @@ import { Label, Segment, Grid, Dropdown, Button } from 'semantic-ui-react';
 class AlertSettings extends React.Component {
   constructor(props) {
     super(props);
+    this.setAlertVia = this.setAlertVia.bind(this);
+    this.setAlertPortfolioAbove = this.setAlertPortfolioAbove.bind(this);
+    this.setAlertPortfolioBelow = this.setAlertPortfolioBelow.bind(this);
+    this.setAlertInstrumentAbove = this.setAlertInstrumentAbove.bind(this);
+    this.setAlertInstrumentBelow = this.setAlertInstrumentBelow.bind(this);
   }
-  setAlert(event) {
-
+  setAlertVia(event, data) {
+    this.props.setAlertVia(data.value);
+  }
+  setAlertPortfolioAbove(event, data) {
+    this.props.setAlertPortfolioAbove(data.value);
+  }
+  setAlertPortfolioBelow(event, data) {
+    this.props.setAlertPortfolioBelow(data.value);
+  }
+  setAlertInstrumentAbove(event, data) {
+    this.props.setAlertInstrumentAbove(data.value);
+  }
+  setAlertInstrumentBelow(event, data) {
+    this.props.setAlertInstrumentBelow(data.value);
   }
   render(){
     const alertViaOptions = [
-      { key: 'sms', text: 'SMS', value: 'SMS' },
-      { key: 'email', text: 'Email', value: 'Email' },
+      { key: 'sms', text: 'SMS', value: 'sms' },
+      { key: 'email', text: 'Email', value: 'email' },
     ];
 
     const alertThresoldOptions = [
@@ -42,6 +59,8 @@ class AlertSettings extends React.Component {
                         fluid
                         selection
                         options={alertViaOptions}
+                        value={this.props.alertSettings.alertVia}
+                        onChange={this.setAlertVia}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -54,7 +73,9 @@ class AlertSettings extends React.Component {
                         placeholder="Select"
                         fluid
                         selection
+                        value={this.props.alertSettings.portfolioAbove}
                         options={alertThresoldOptions}
+                        onChange={this.setAlertPortfolioAbove}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -67,7 +88,9 @@ class AlertSettings extends React.Component {
                         placeholder="Select"
                         fluid
                         selection
+                        value={this.props.alertSettings.portfolioBelow}
                         options={alertThresoldOptions}
+                        onChange={this.setAlertPortfolioBelow}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -80,7 +103,9 @@ class AlertSettings extends React.Component {
                         placeholder="Select"
                         fluid
                         selection
+                        value={this.props.alertSettings.instrumentAbove}
                         options={alertThresoldOptions}
+                        onChange={this.setAlertInstrumentAbove}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -93,7 +118,9 @@ class AlertSettings extends React.Component {
                         placeholder="Select"
                         fluid
                         selection
+                        value={this.props.alertSettings.instrumentBelow}
                         options={alertThresoldOptions}
+                        onChange={this.setAlertInstrumentBelow}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -113,5 +140,20 @@ class AlertSettings extends React.Component {
       </div>);
   }
 }
+
+AlertSettings.propTypes = {
+  setAlertVia: PropTypes.func.isRequired,
+  setAlertPortfolioAbove: PropTypes.func.isRequired,
+  setAlertPortfolioBelow: PropTypes.func.isRequired,
+  setAlertInstrumentAbove: PropTypes.func.isRequired,
+  setAlertInstrumentBelow: PropTypes.func.isRequired,
+  alertSettings: PropTypes.shape({
+    alertVia: PropTypes.string,
+    portfolioAbove: PropTypes.number,
+    portfolioBelow: PropTypes.number,
+    instrumentAbove: PropTypes.number,
+    instrumentBelow: PropTypes.number,
+  }).isRequired,
+};
 
 export default AlertSettings;

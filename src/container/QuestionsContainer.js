@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   uiState: state.uiState,
   customerInfo: state.customerInfo,
   portfolioInfo: state.portfolioInfo,
+  alertSettings: state.alertSettings,
   assetType: state.portfolioInfo.assetType,
 });
 
