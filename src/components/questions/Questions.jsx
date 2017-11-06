@@ -6,6 +6,8 @@ import InvestmentKnowledge from './InvestmentKnowledge';
 import InvestmentExperience from './InvestmentExperience';
 import InvestmentHorizon from './InvestmentHorizon';
 import MarketFluctuation from './MarketFluctuation';
+import CustomerProfiling from './CustomerProfiling';
+import RegisterUserDetails from './RegisterUserDetails';
 import Portfolio from '../Portfolio';
 
 class Questions extends React.Component {
@@ -20,7 +22,9 @@ class Questions extends React.Component {
         3: InvestmentExperience,
         4: InvestmentHorizon,
         5: MarketFluctuation,
-        6: Portfolio,
+        6: RegisterUserDetails,
+        7: CustomerProfiling,
+        8: Portfolio,
       },
     };
   }
