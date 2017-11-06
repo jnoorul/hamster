@@ -52,6 +52,13 @@ export function setInvestmentHorizon(investmentHorizon) {
   };
 }
 
+export function setReactionToFluctuation(reactionToFluctuation) {
+  return {
+    type: actions.SET_REACTION_TO_FLUCTUATION,
+    reactionToFluctuation,
+  };
+}
+
 export function setAssetType(assetType) {
   return {
     type: actions.SET_ASSET_TYPE,

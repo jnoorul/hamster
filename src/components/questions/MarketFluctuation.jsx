@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button, Grid } from 'semantic-ui-react';
 
-class NumberOfYears extends React.Component {
+class MarketFluctuation extends React.Component {
   constructor(props) {
     super(props);
-    this.getNext = this.getNext.bind(this);
+    this.onComplete = this.onComplete.bind(this);
     this.getPrev = this.getPrev.bind(this);
-    this.setInvestmentHorizon = this.setInvestmentHorizon.bind(this);
+    this.setReactionToFluctuations = this.setReactionToFluctuations.bind(this);
   }
 
-  getNext() {
-    // this.props.saveCustomerInfo(this.props.customerInfo);
+  onComplete() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
@@ -19,8 +18,8 @@ class NumberOfYears extends React.Component {
     this.props.getPreviousQuestion(this.props.qnNumber);
   }
 
-  setInvestmentHorizon(event) {
-    this.props.setInvestmentHorizon(event.target.getAttribute('data-key'));
+  setReactionToFluctuations(event) {
+    this.props.setReactionToFluctuation(event.target.getAttribute('data-key'));
     // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
   }
 
@@ -30,43 +29,42 @@ class NumberOfYears extends React.Component {
       margin: '1.1rem',
       borderRadius: '5px',
       fontWeight: 'bolder',
-      width: '25rem',
       fontSize: '1.3rem'
     };
 
     return (
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
-          How long do you plan to keep your money invested for?
+          If your investment dropped in value by more than 20% over a short period, you would be:
         </h1>
         <Grid columns={1}>
           <Grid.Row width={16} centered>
-            <Button.Group vertical>
+            <Button.Group fluid vertical>
               <Button
-                data-key="0"
+                data-key="nervous"
                 style={buttonStyle}
-                className={('0' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('nervous' === this.props.customerInfo.reactionToFluctuation) ? 'primary' : 'basic'}
+                onClick={this.setReactionToFluctuations}
               >
-                Less than 5 years
+                Very nervous
               </Button>
               <Button
-                data-key="5"
+                data-key="concerned"
                 style={buttonStyle}
-                className={('5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('concerned' === this.props.customerInfo.reactionToFluctuation) ? 'primary' : 'basic'}
+                onClick={this.setReactionToFluctuations}
               >
-                5 to 10 years
+                Somewhat concerned
               </Button>
               <Button
-                data-key="10"
+                data-key="ignore"
                 style={buttonStyle}
-                className={('10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
-                onClick={this.setInvestmentHorizon}
+                className={('ignore' === this.props.customerInfo.reactionToFluctuation) ? 'primary' : 'basic'}
+                onClick={this.setReactionToFluctuations}
               >
-                More than 10 years
+                Not worried - you are familiar with sharemarket fluctuations
               </Button>
-            </Button.Group>
+          </Button.Group>
           </Grid.Row>
         </Grid>
         <Button.Group className="buttonGrpPrevNext" style={{marginTop:'2rem'}}>
@@ -78,7 +76,7 @@ class NumberOfYears extends React.Component {
           />
           <Button
             color="teal"
-            onClick={this.getNext}
+            onClick={this.onComplete}
             labelPosition="right"
             icon="right chevron"
             content="Next"
@@ -89,13 +87,13 @@ class NumberOfYears extends React.Component {
   }
 }
 
-NumberOfYears.propTypes = {
+MarketFluctuation.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  customerInfo: PropTypes.shape({investmentHorizon: PropTypes.string}).isRequired,
+  customerInfo: PropTypes.shape({reactionToFluctuations: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
-  setInvestmentHorizon: PropTypes.func.isRequired,
+  setReactionToFluctuation: PropTypes.func.isRequired,
 };
 
-export default NumberOfYears;
+export default MarketFluctuation;

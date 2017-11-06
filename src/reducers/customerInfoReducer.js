@@ -14,6 +14,8 @@ export default function customerInfoReducer(state = { userId: 'nameen_123', port
       return Object.assign({}, state, { investmentKnowledge: action.knowledge });
     case actions.SET_INVESTMENT_HORIZON:
       return Object.assign({}, state, { investmentHorizon: action.investmentHorizon });
+    case actions.SET_REACTION_TO_FLUCTUATION:
+      return Object.assign({}, state, { reactionToFluctuation: action.reactionToFluctuation });
     default:
       return state;
   }

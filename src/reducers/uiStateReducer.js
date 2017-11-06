@@ -2,7 +2,7 @@ import * as actions from '../actions/actionNames';
 
 export default function uiStateReducer(state = {
   qnNumber: 0,
-  totalQns: 5,
+  totalQns: 6,
 }, action) {
   switch (action.type) {
     case actions.SET_QUESTION_NUMBER:

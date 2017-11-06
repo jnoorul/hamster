@@ -5,6 +5,7 @@ import Age from './Age';
 import InvestmentKnowledge from './InvestmentKnowledge';
 import InvestmentExperience from './InvestmentExperience';
 import InvestmentHorizon from './InvestmentHorizon';
+import MarketFluctuation from './MarketFluctuation';
 import Portfolio from '../Portfolio';
 
 class Questions extends React.Component {
@@ -18,7 +19,8 @@ class Questions extends React.Component {
         2: InvestmentKnowledge,
         3: InvestmentExperience,
         4: InvestmentHorizon,
-        5: Portfolio,
+        5: MarketFluctuation,
+        6: Portfolio,
       },
     };
   }
