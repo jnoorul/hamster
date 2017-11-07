@@ -19,6 +19,12 @@ export default function uiStateReducer(state = {
       return Object.assign({}, state, { getPortfolioStatus: 'success' });
     case actions.GET_PORTFOLIO_INFO_FAILURE:
       return Object.assign({}, state, { getPortfolioStatus: 'failure', err: action.err });
+    case actions.SAVE_ALERT_SETTINGS_REQUEST:
+      return Object.assign({}, state, { saveAlertStatus: 'inprogress' });
+    case actions.SAVE_ALERT_SETTINGS_SUCCESS:
+      return Object.assign({}, state, { saveAlertStatus: 'success' });
+    case actions.SAVE_ALERT_SETTINGS_FAILURE:
+      return Object.assign({}, state, { saveAlertStatus: 'failure', err: action.err });
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label, Segment, Grid, Dropdown, Button } from 'semantic-ui-react';
+import { Label, Segment, Grid, Dropdown, Button, Dimmer, Loader } from 'semantic-ui-react';
 
 class AlertSettings extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class AlertSettings extends React.Component {
     this.setAlertPortfolioBelow = this.setAlertPortfolioBelow.bind(this);
     this.setAlertInstrumentAbove = this.setAlertInstrumentAbove.bind(this);
     this.setAlertInstrumentBelow = this.setAlertInstrumentBelow.bind(this);
+    this.saveAlertSettings = this.saveAlertSettings.bind(this);
   }
   setAlertVia(event, data) {
     this.props.setAlertVia(data.value);
@@ -26,7 +27,15 @@ class AlertSettings extends React.Component {
   setAlertInstrumentBelow(event, data) {
     this.props.setAlertInstrumentBelow(data.value);
   }
+
+  saveAlertSettings() {
+    const alertInfo = Object.assign({}, this.props.alertSettings, {cif: 199, portfolioId: 1 });
+    this.props.saveAlertSettings(alertInfo);
+  }
+
   render(){
+    const { saveAlertStatus } = this.props.uiState;
+
     const alertViaOptions = [
       { key: 'sms', text: 'SMS', value: 'sms' },
       { key: 'email', text: 'Email', value: 'email' },
@@ -40,7 +49,7 @@ class AlertSettings extends React.Component {
     ];
 
     return (
-      <div className="mainContent">
+      <div>
         <Grid centered>
           <Grid.Row centered>
             <Grid.Column width={7}>
@@ -124,12 +133,40 @@ class AlertSettings extends React.Component {
                       />
                     </Grid.Column>
                   </Grid.Row>
+                  <Grid.Row>
+                    <Dimmer active={(saveAlertStatus==='inprogress')} inverted>
+                      <Loader inverted>Saving...</Loader>
+                    </Dimmer>
+                  </Grid.Row>
+                  <Grid.Row centered>
+                    <Label
+                      basic
+                      style={{ display: (saveAlertStatus === 'success') ? 'inline' : 'none' }}
+                    >
+                      Alerts settings are saved successfully
+                    </Label>
+                  </Grid.Row>
+                  <Grid.Row centered>
+                    <Label
+                      basic
+                      style={{ display: (saveAlertStatus === 'failure') ? 'inline' : 'none' }}
+                      color="red"
+                    >
+                      Unable to save your alert settings. Please try again.
+                    </Label>
+                  </Grid.Row>
                   <Grid.Row centered>
                     <Grid.Column>
                       <Button basic style={{float: 'right', width: '6rem'}}>Cancel</Button>
                     </Grid.Column>
                     <Grid.Column>
-                      <Button primary style={{float: 'left', width: '6rem'}}>Save</Button>
+                      <Button
+                        primary
+                        style={{float: 'left', width: '6rem'}}
+                        onClick={this.saveAlertSettings}
+                      >
+                        Save
+                      </Button>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -147,6 +184,8 @@ AlertSettings.propTypes = {
   setAlertPortfolioBelow: PropTypes.func.isRequired,
   setAlertInstrumentAbove: PropTypes.func.isRequired,
   setAlertInstrumentBelow: PropTypes.func.isRequired,
+  saveAlertSettings: PropTypes.func.isRequired,
+  uiState: PropTypes.shape({ saveAlertStatus: PropTypes.string }),
   alertSettings: PropTypes.shape({
     alertVia: PropTypes.string,
     portfolioAbove: PropTypes.number,

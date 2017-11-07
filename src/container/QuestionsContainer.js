@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as hamsterActionCreators from '../actions/hamsterActions';
-import { saveCustomerInfoWithDispatch, getPortfolioInfoWithDispatch } from "../actions/hamsterActions";
+import {
+  saveCustomerInfoWithDispatch,
+  getPortfolioInfoWithDispatch,
+  saveAlertSettingsWithDispatch
+} from "../actions/hamsterActions";
 import Questions from '../components/questions/Questions';
 
 const mapStateToProps = state => ({
@@ -39,11 +43,16 @@ const mapDispatchToProps = (dispatch) => {
     getPortfolioInfoWithDispatch(dispatch, totalRiskScore);
   };
 
+  const saveAlertSettings = (alertInfo) => {
+    saveAlertSettingsWithDispatch(dispatch, alertInfo);
+  };
+
   return {
     getNextQuestion,
     getPreviousQuestion,
     saveCustomerInfo,
     getPortfolioInfo,
+    saveAlertSettings,
     ...boundActionCreators,
   };
 };

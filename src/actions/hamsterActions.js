@@ -162,6 +162,25 @@ export function getPortfolioInfoFailure(err) {
   };
 }
 
+export function saveAlertSettingsRequest() {
+  return {
+    type: actions.SAVE_ALERT_SETTINGS_REQUEST,
+  };
+}
+
+export function saveAlertSettingSuccess() {
+  return {
+    type: actions.SAVE_ALERT_SETTINGS_SUCCESS,
+  };
+}
+
+export function saveAlertSettingsFailure(err) {
+  return {
+    type: actions.SAVE_ALERT_SETTINGS_FAILURE,
+    err,
+  };
+}
+
 export function setPorfolioInfo(portfolioInfo) {
   return {
     type: actions.SET_PORTFOLIO_INFO,
@@ -206,6 +225,26 @@ export function getPortfolioInfoWithDispatch(dispatch, totalRiskScore) {
     setTimeout(() => {
       dispatch(getPortfolioInfoFailure(err.message));
     }, 1000);
+  });
+}
+
+export function saveAlertSettingsWithDispatch(dispatch, alertInfo) {
+  dispatch(saveAlertSettingsRequest());
+  fetch(`${hamsterServerUrl}/events/insert`, {
+    method: 'POST',
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: JSON.stringify(alertInfo),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    setTimeout(() => {
+      dispatch(saveAlertSettingSuccess());
+    }, 1000);
+    // dispatch(setPorfolioInfo(jsonRes.portfolio));
+  }).catch((err) => {
+    setTimeout(() => {
+      dispatch(saveAlertSettingsFailure(err.message));
+    }, 1500);
   });
 }
 
