@@ -18,16 +18,19 @@ class ClosingPage extends React.Component {
           </Dimmer>
         </Grid.Row>
         <Grid.Row centered>
-          <Label
+          <h3
             basic
             style={{display: (saveAlertStatus === 'success') ? 'inline' : 'none'}}
           >
-            Thank you having relationship with us. Your portfolio is created with initial
-            investment amount of US$ {this.props.customerInfo.investmentAmount} <br/>
+            Thank you!!
+            <br/> <br/> <br/>
+            Your portfolio is created with initial
+            investment amount of US$ {this.props.customerInfo.initialInvestmentAmount}
+            <br/> <br/> <br/>
             You will get SMS / Email confirmation once the trades in your portfolio
-            are executed in the market. <br/>
-            If you have any further questions, please contact us at hamster@credit-suisse.com
-          </Label>
+            are executed in the market.
+            <br/> <br/> <br/>
+          </h3>
         </Grid.Row>
         <Grid.Row centered>
           <Label
@@ -40,12 +43,12 @@ class ClosingPage extends React.Component {
         </Grid.Row>
         <Grid.Row centered>
           <Grid.Column>
-            <Button basic style={{float: 'right', width: '6rem'}}>Cancel</Button>
+            <Button basic style={{float: 'right', width: '10rem'}}>Logout</Button>
           </Grid.Column>
           <Grid.Column>
             <Button
               primary
-              style={{float: 'left', width: '6rem'}}
+              style={{float: 'left', width: '10rem'}}
               onClick={this.saveAlertSettings}
             >
               Home Page

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Label, Segment, Grid, Dropdown, Button, Dimmer, Loader } from 'semantic-ui-react';
+import ActionBar from "./ActionBar";
 
 class AlertSettings extends React.Component {
   constructor(props) {
@@ -10,8 +11,18 @@ class AlertSettings extends React.Component {
     this.setAlertPortfolioBelow = this.setAlertPortfolioBelow.bind(this);
     this.setAlertInstrumentAbove = this.setAlertInstrumentAbove.bind(this);
     this.setAlertInstrumentBelow = this.setAlertInstrumentBelow.bind(this);
-    this.saveAlertSettings = this.saveAlertSettings.bind(this);
+    this.getNext = this.getNext.bind(this);
   }
+
+  getNext() {
+    const alertInfo = Object.assign(
+      {}, this.props.alertSettings,
+      { cif: this.props.customerInfo.cif, portfolioId: this.props.customerInfo.portfolioId },
+    );
+    this.props.saveAlertSettings(alertInfo);
+    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+  }
+
   setAlertVia(event, data) {
     this.props.setAlertVia(data.value);
   }
@@ -26,14 +37,6 @@ class AlertSettings extends React.Component {
   }
   setAlertInstrumentBelow(event, data) {
     this.props.setAlertInstrumentBelow(data.value);
-  }
-
-  saveAlertSettings() {
-    const alertInfo = Object.assign(
-      {}, this.props.alertSettings,
-      { cif: this.props.customerInfo.cif, portfolioId: this.props.customerInfo.portfolioId },
-    );
-    this.props.saveAlertSettings(alertInfo);
   }
 
   render(){
@@ -159,18 +162,7 @@ class AlertSettings extends React.Component {
                     </Label>
                   </Grid.Row>
                   <Grid.Row centered>
-                    <Grid.Column>
-                      <Button basic style={{float: 'right', width: '6rem'}}>Cancel</Button>
-                    </Grid.Column>
-                    <Grid.Column>
-                      <Button
-                        primary
-                        style={{float: 'left', width: '6rem'}}
-                        onClick={this.saveAlertSettings}
-                      >
-                        Save
-                      </Button>
-                    </Grid.Column>
+                    <ActionBar next nextButtonName="Save" getNext={this.getNext} />
                   </Grid.Row>
                 </Grid>
               </Segment>
@@ -182,11 +174,14 @@ class AlertSettings extends React.Component {
 }
 
 AlertSettings.propTypes = {
+  qnNumber: PropTypes.number.isRequired,
+  totalQns: PropTypes.number.isRequired,
   setAlertVia: PropTypes.func.isRequired,
   setAlertPortfolioAbove: PropTypes.func.isRequired,
   setAlertPortfolioBelow: PropTypes.func.isRequired,
   setAlertInstrumentAbove: PropTypes.func.isRequired,
   setAlertInstrumentBelow: PropTypes.func.isRequired,
+  getNextQuestion: PropTypes.func.isRequired,
   saveAlertSettings: PropTypes.func.isRequired,
   uiState: PropTypes.shape({ saveAlertStatus: PropTypes.string }),
   customerInfo: PropTypes.shape({

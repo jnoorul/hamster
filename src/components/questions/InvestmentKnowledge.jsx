@@ -36,7 +36,7 @@ class InvestmentKnowledge extends React.Component {
     return (
       <div className="mainContent">
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
-          Tell us about your investment knowledge
+          Tell me about your investment knowledge
         </h1>
         <Grid columns={1}>
           <Grid.Row width={16} centered>
@@ -47,7 +47,6 @@ class InvestmentKnowledge extends React.Component {
                 className={('none' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
-
                 No knowledge<span style={{ fontSize:'1rem' }}>
                 &nbsp;&nbsp;-&nbsp;&nbsp;I know virtually nothing about investing
                 </span>

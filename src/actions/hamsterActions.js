@@ -233,12 +233,11 @@ export function getRiskScoreWithDispatch(dispatch, customerInfo) {
     setTimeout(() => {
       dispatch(setTotalRiskScore(jsonRes.totalRiskScore));
       dispatch(getRiskScoreSuccess());
-    }, 1500);
-    // dispatch(setPorfolioInfo(jsonRes.portfolio));
+    }, 1000);
   }).catch((err) => {
     setTimeout(() => {
       dispatch(getRiskScoreFailure(err.message));
-    }, 1500);
+    }, 1000);
   });
 }
 
@@ -254,12 +253,9 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
     setTimeout(() => {
       dispatch(loadCustomerInfo(jsonRes.customer));
       dispatch(saveCustomerSuccess());
-    }, 1500);
-    // dispatch(setPorfolioInfo(jsonRes.portfolio));
+    }, 500);
   }).catch((err) => {
-    setTimeout(() => {
-      dispatch(saveCustomerFailure(err.message));
-    }, 1500);
+    dispatch(saveCustomerFailure(err.message));
   });
 }
 
@@ -276,9 +272,7 @@ export function getPortfolioInfoWithDispatch(dispatch, totalRiskScore) {
       dispatch(getPortfolioInfoSuccess());
     }, 1000);
   }).catch((err) => {
-    setTimeout(() => {
-      dispatch(getPortfolioInfoFailure(err.message));
-    }, 1000);
+    dispatch(getPortfolioInfoFailure(err.message));
   });
 }
 
@@ -291,14 +285,9 @@ export function saveAlertSettingsWithDispatch(dispatch, alertInfo) {
   }).then((res) => {
     return res.json();
   }).then((jsonRes) => {
-    setTimeout(() => {
-      dispatch(saveAlertSettingSuccess());
-    }, 1000);
-    // dispatch(setPorfolioInfo(jsonRes.portfolio));
+    dispatch(saveAlertSettingSuccess());
   }).catch((err) => {
-    setTimeout(() => {
-      dispatch(saveAlertSettingsFailure(err.message));
-    }, 1500);
+    dispatch(saveAlertSettingsFailure(err.message));
   });
 }
 

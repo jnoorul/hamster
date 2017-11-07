@@ -10,6 +10,7 @@ import MarketFluctuation from './MarketFluctuation';
 import CustomerProfiling from './CustomerProfiling';
 import RegisterUserDetails from './RegisterUserDetails';
 import Portfolio from './Portfolio';
+import PortfolioNew from './PortfolioNew';
 import AlertSettings from '../home/AlertSettings';
 import ClosingPage from '../home/ClosingPage';
 
@@ -27,7 +28,7 @@ class Questions extends React.Component {
         5: ExpectedReturn,
         6: MarketFluctuation,
         7: CustomerProfiling,
-        8: Portfolio,
+        8: PortfolioNew,
         9: RegisterUserDetails,
         10: AlertSettings,
         11: ClosingPage,
