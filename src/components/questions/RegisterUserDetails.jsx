@@ -54,10 +54,15 @@ class RegisterUserDetails extends React.Component {
           </Grid.Row>
           <Grid.Row centered>
             <Grid.Column width={4}>
-              <Input label="Password" />
+              <Input type="password" label={<Label style={{ paddingLeft: '1.5rem' }}>Password</Label>} />
             </Grid.Column>
           </Grid.Row>
-        </Grid>/
+          <Grid.Row centered>
+            <Grid.Column width={4}>
+              <Input  type="number" label={<Label style={{ paddingLeft: '4.5rem' }}>+65</Label>} placeholder="mobile number" />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
       </div>
     );

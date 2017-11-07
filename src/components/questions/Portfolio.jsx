@@ -4,6 +4,7 @@ import PortfolioDivision from '../../assets/PortfolioBreakdown'
 import ReactHighCharts from 'react-highcharts';
 import AssetDetails from '../AssetDetails'
 import roboThinkImg from '../../assets/images/robo-think.gif';
+import ActionBar from '../home/ActionBar';
 
 
 class Portfolio extends React.Component {
@@ -12,12 +13,17 @@ class Portfolio extends React.Component {
 
      this.setAssetType = this.setAssetType.bind(this);
      this.getPrev = this.getPrev.bind(this);
+     this.getNext = this.getNext.bind(this);
 
     }
 
     setAssetType = (e) => {
         this.props.setAssetType(e.point.name)
     };
+
+    getNext() {
+      this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
+    }
 
     getPrev() {
       this.props.getPreviousQuestion(this.props.qnNumber);
@@ -130,6 +136,7 @@ class Portfolio extends React.Component {
 
 
         return (
+          <div>
             <Grid>
               <Grid.Row centered>
                   <div className="portfolioPieContainer">
@@ -141,7 +148,12 @@ class Portfolio extends React.Component {
                   <AssetDetails {...this.props} />
                 </div>
               </Grid.Row>
+              {/*<Grid.Row width={4} centered>
+                <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
+              </Grid.Row>*/}
             </Grid>
+            <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
+          </div>
             /*<Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
                 <Column title="Stocks Breakdown" assetClass="Stock" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
              </div>*/
