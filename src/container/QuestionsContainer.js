@@ -4,6 +4,7 @@ import * as hamsterActionCreators from '../actions/hamsterActions';
 import {
   getRiskScoreWithDispatch,
   getPortfolioInfoWithDispatch,
+  getDetailedPortfolioInfoWithDispatch,
   saveAlertSettingsWithDispatch,
   saveCustomerInfoWithDispatch,
 } from "../actions/hamsterActions";
@@ -48,6 +49,10 @@ const mapDispatchToProps = (dispatch) => {
     getPortfolioInfoWithDispatch(dispatch, totalRiskScore);
   };
 
+  const getDetailedPortfolioInfo = (customerInfo) => {
+    getDetailedPortfolioInfoWithDispatch(dispatch, customerInfo);
+  };
+
   const saveAlertSettings = (alertInfo) => {
     saveAlertSettingsWithDispatch(dispatch, alertInfo);
   };
@@ -58,6 +63,7 @@ const mapDispatchToProps = (dispatch) => {
     getRiskScore,
     saveCustomerInfo,
     getPortfolioInfo,
+    getDetailedPortfolioInfo,
     saveAlertSettings,
     ...boundActionCreators,
   };

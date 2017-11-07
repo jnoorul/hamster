@@ -12,7 +12,8 @@ class CustomerProfiling extends React.Component {
   }
 
   getNext() {
-    this.props.getPortfolioInfo(this.props.customerInfo.totalRiskScore);
+    // this.props.getPortfolioInfo(this.props.customerInfo.totalRiskScore);
+    this.props.getDetailedPortfolioInfo(this.props.customerInfo);
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
@@ -77,6 +78,7 @@ CustomerProfiling.propTypes = {
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
   getPortfolioInfo: PropTypes.func.isRequired,
+  getDetailedPortfolioInfo: PropTypes.func.isRequired,
 };
 
 export default CustomerProfiling;

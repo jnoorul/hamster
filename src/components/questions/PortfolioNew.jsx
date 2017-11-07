@@ -20,10 +20,12 @@ class PortfolioNew extends React.Component {
     this.setAssetType = this.setAssetType.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.getNext = this.getNext.bind(this);
+    this.getPortfolioDetails = this.getPortfolioDetails.bind(this);
+    this.getDetailedPortfolioDetails = this.getDetailedPortfolioDetails.bind(this);
   }
 
   setAssetType = (e) => {
-      this.props.setAssetType(e.point.name)
+      this.props.setAssetType(e.point.name);
   };
 
   getNext() {
@@ -35,31 +37,37 @@ class PortfolioNew extends React.Component {
   }
 
   getPortfolioDetails = () => {
-      var data = [
-          {
-              name: 'Assets',
-              data: []
-          }];
-      var fakeData = PortfolioDivision[0];
-      var startIndex = 0
-      for(let assetType in fakeData){
-          if(startIndex === 0){
-              data[0].data.push({
-                  name: assetType,
-                  y: fakeData[assetType],
-                  sliced: true,
-                  selected: true,
-              })
+      let series = [{name: 'Assets', data:[]}];
+      const distribution = this.props.portfolioInfo.distribution;
+      const selectedAssetType = this.props.portfolioInfo.assetType;
+
+      for(let assetType in distribution) {
+        if( distribution.hasOwnProperty(assetType)) {
+          if (assetType === selectedAssetType) {
+            const selectedObj = {name: assetType, y: distribution[assetType], sliced: true, selected: true};
+            series[0].data.push(selectedObj);
+          } else {
+            series[0].data.push([assetType,distribution[assetType]]);
           }
-          else {
-              data[0].data.push({
-                  name: assetType,
-                  y: fakeData[assetType]
-              })
-          }
-          startIndex++
+        }
       }
-      return data;
+      return series;
+  };
+
+  getDetailedPortfolioDetails = () => {
+    let series = [{name: this.props.portfolioInfo.assetType, data:[]}];
+    const detailedInfo = this.props.portfolioInfo.detailedPortfolioInfo;
+
+    if(!this.props.portfolioInfo.assetType || !detailedInfo) {
+      return [];
+    }
+    series[0].data =  detailedInfo.filter((item) => {
+      return (item.type === this.props.portfolioInfo.assetType);
+    }).map((entry) => {
+      return [entry.ticker, entry.totalAmount];
+    });
+
+    return series;
   };
 
   getAssetAllocationSeriesBreakdown() {
@@ -115,7 +123,7 @@ class PortfolioNew extends React.Component {
     }
 
     const pieConfig = getPieConfig({data: this.getPortfolioDetails(), onClick: this.setAssetType});
-    const barConfig = getBarConfig({data: this.getAssetAllocationSeriesBreakdown(), onClick: this.setAssetType});
+    const barConfig = getBarConfig({data: this.getDetailedPortfolioDetails()});
 
     const marks = {
       0: 'Low',
@@ -141,7 +149,7 @@ class PortfolioNew extends React.Component {
           <Grid.Row centered>
             <Grid.Column width={8}>
               <h4>Adjust your risk profile</h4>
-              <Slider marks={marks} step={10} defaultValue={50} />
+              <Slider marks={marks} step={10} defaultValue={this.props.customerInfo.totalRiskScore * 2} />
             </Grid.Column>
           </Grid.Row>
         </Grid>

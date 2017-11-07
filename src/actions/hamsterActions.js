@@ -195,6 +195,25 @@ export function getPortfolioInfoFailure(err) {
   };
 }
 
+export function getDetailedPortfolioInfoRequest() {
+  return {
+    type: actions.GET_DETAILED_PORTFOLIO_INFO_REQUEST,
+  };
+}
+
+export function getDetailedPortfolioInfoSuccess() {
+  return {
+    type: actions.GET_DETAILED_PORTFOLIO_INFO_SUCCESS,
+  };
+}
+
+export function getDetailedPortfolioInfoFailure(err) {
+  return {
+    type: actions.GET_DETAILED_PORTFOLIO_INFO_FAILURE,
+    err,
+  };
+}
+
 export function saveAlertSettingsRequest() {
   return {
     type: actions.SAVE_ALERT_SETTINGS_REQUEST,
@@ -221,6 +240,13 @@ export function setPorfolioInfo(portfolioInfo) {
   };
 }
 
+export function setDetailedPorfolioInfo(detailedPortfolioInfo) {
+  return {
+    type: actions.SET_DETAILED_PORTFOLIO_INFO,
+    detailedPortfolioInfo,
+  };
+}
+
 export function getRiskScoreWithDispatch(dispatch, customerInfo) {
   dispatch(getRiskScoreRequest());
   fetch(`${hamsterServerUrl}/customer/riskscore`, {
@@ -233,11 +259,9 @@ export function getRiskScoreWithDispatch(dispatch, customerInfo) {
     setTimeout(() => {
       dispatch(setTotalRiskScore(jsonRes.totalRiskScore));
       dispatch(getRiskScoreSuccess());
-    }, 1000);
+    }, 500);
   }).catch((err) => {
-    setTimeout(() => {
-      dispatch(getRiskScoreFailure(err.message));
-    }, 1000);
+    dispatch(getRiskScoreFailure(err.message));
   });
 }
 
@@ -273,6 +297,25 @@ export function getPortfolioInfoWithDispatch(dispatch, totalRiskScore) {
     }, 1000);
   }).catch((err) => {
     dispatch(getPortfolioInfoFailure(err.message));
+  });
+}
+
+export function getDetailedPortfolioInfoWithDispatch(dispatch, customerInfo) {
+  const riskScore = customerInfo.totalRiskScore;
+  const invAmount = customerInfo.initialInvestmentAmount;
+  dispatch(getDetailedPortfolioInfoRequest());
+  fetch(`${hamsterServerUrl}/portfolio/compose/${riskScore}/${invAmount}`, {
+    method: 'GET',
+    headers: new Headers({ 'content-type': 'application/json' }),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    setTimeout(() => {
+      dispatch(setDetailedPorfolioInfo(jsonRes));
+      dispatch(getDetailedPortfolioInfoSuccess());
+    }, 1000);
+  }).catch((err) => {
+    dispatch(getDetailedPortfolioInfoFailure(err.message));
   });
 }
 
