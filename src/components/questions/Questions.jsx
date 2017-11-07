@@ -9,7 +9,7 @@ import ExpectedReturn from './ExpectedReturn';
 import MarketFluctuation from './MarketFluctuation';
 import CustomerProfiling from './CustomerProfiling';
 import RegisterUserDetails from './RegisterUserDetails';
-import Portfolio from '../Portfolio';
+import Portfolio from './Portfolio';
 import AlertSettings from '../home/AlertSettings';
 
 class Questions extends React.Component {
@@ -18,7 +18,7 @@ class Questions extends React.Component {
     this.getComponentToRender = this.getComponentToRender.bind(this);
     this.componentmapper = {
       byName: {
-        0: WelcomePage,
+        0: Portfolio,
         1: Age,
         2: InvestmentKnowledge,
         3: InvestmentExperience,

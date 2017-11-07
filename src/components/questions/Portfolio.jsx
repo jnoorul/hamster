@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
-import PortfolioDivision from '../assets/PortfolioBreakdown'
+import { Button, Grid } from 'semantic-ui-react';
+import PortfolioDivision from '../../assets/PortfolioBreakdown'
 import ReactHighCharts from 'react-highcharts';
-import AssetDetails from './AssetDetails'
-import roboThinkImg from '../assets/images/robo-think.gif';
+import AssetDetails from '../AssetDetails'
+import roboThinkImg from '../../assets/images/robo-think.gif';
 
 
 class Portfolio extends React.Component {
@@ -130,10 +130,18 @@ class Portfolio extends React.Component {
 
 
         return (
-            <div style={{ borderLeft: 'solid 1px rgba(0,0,0,0.1)' }}>
-                <ReactHighCharts config={config} style={{height:"20%"}}/>
-                <AssetDetails {...this.props} />
-            </div>
+            <Grid>
+              <Grid.Row centered>
+                  <div className="portfolioPieContainer">
+                    <ReactHighCharts config={config}/>
+                  </div>
+              </Grid.Row>
+              <Grid.Row centered>
+                <div className="portfolioBarContainer">
+                  <AssetDetails {...this.props} />
+                </div>
+              </Grid.Row>
+            </Grid>
             /*<Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
                 <Column title="Stocks Breakdown" assetClass="Stock" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />
              </div>*/

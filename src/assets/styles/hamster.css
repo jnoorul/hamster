@@ -67,6 +67,18 @@ html, body {
     margin-right: 2rem;
 }
 
+.portfolioPieContainer {
+    width: 70%;
+    height: 50%;
+    margin-top: 5rem;
+}
+
+.portfolioBarContainer {
+    width: 60%;
+    height: 50%;
+    margin-top: 5rem;
+}
+
 #slidecontainer {
     width: 100%;
     position: relative;
