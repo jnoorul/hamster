@@ -10,7 +10,7 @@ export default function portfolioInfoReducer(state = {}, action) {
         assetType: Object.keys(action.portfolioInfo.distribution)[0],
       });
     case actions.SET_DETAILED_PORTFOLIO_INFO:
-      return Object.assign({}, state, { detailedPortfolioInfo: [...action.detailedPortfolioInfo] });
+      return Object.assign({}, state, { detailedPortfolioInfo: [...action.detailedPortfolioInfo], assetType: action.detailedPortfolioInfo[0].type });
     default:
       return state;
   }

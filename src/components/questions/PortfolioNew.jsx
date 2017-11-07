@@ -38,18 +38,26 @@ class PortfolioNew extends React.Component {
 
   getPortfolioDetails = () => {
       let series = [{name: 'Assets', data:[]}];
-      const distribution = this.props.portfolioInfo.distribution;
+      const detailedInfo = this.props.portfolioInfo.detailedPortfolioInfo;
       const selectedAssetType = this.props.portfolioInfo.assetType;
 
-      for(let assetType in distribution) {
-        if( distribution.hasOwnProperty(assetType)) {
+      var assetDict = {}
+      for (var item, i = 0; item = detailedInfo[i++];) {
+          var key = item.type;
+
+          if (assetDict[key] === null || assetDict[key] === undefined) {
+              assetDict[key] = parseInt(item.quantity)
+          }
+          assetDict[key] += parseInt(item.quantity)
+      }
+
+      for(let assetType in assetDict) {
           if (assetType === selectedAssetType) {
-            const selectedObj = {name: assetType, y: distribution[assetType], sliced: true, selected: true};
+            const selectedObj = {name: assetType, y: assetDict[assetType], sliced: true, selected: true};
             series[0].data.push(selectedObj);
           } else {
-            series[0].data.push([assetType,distribution[assetType]]);
+            series[0].data.push([assetType,assetDict[assetType]]);
           }
-        }
       }
       return series;
   };
@@ -95,7 +103,7 @@ class PortfolioNew extends React.Component {
 
   render() {
 
-    if (this.props.uiState.getPortfolioStatus === 'inprogress') {
+    if (this.props.uiState.getDetailedPortfolioStatus === 'inprogress') {
       return (
         <div className="mainContent">
             <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
@@ -105,7 +113,7 @@ class PortfolioNew extends React.Component {
         </div>);
     }
 
-    if (this.props.uiState.getPortfolioStatus === 'failure') {
+    if (this.props.uiState.getDetailedPortfolioStatusx === 'failure') {
       return (
         <div className="mainContent">
             <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
