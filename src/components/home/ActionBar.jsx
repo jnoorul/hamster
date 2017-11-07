@@ -11,7 +11,7 @@ function ActionBar(props) {
             { (props.previous) ? <Button
               labelPosition="left"
               icon="left chevron"
-              content="Previous"
+              content={props.previousButtonName}
               onClick={props.getPrev}
             /> : null
             }
@@ -20,7 +20,7 @@ function ActionBar(props) {
               onClick={props.getNext}
               labelPosition="right"
               icon="right chevron"
-              content="Next"
+              content={props.nextButtonName}
               primary
             /> : null
             }
@@ -36,11 +36,15 @@ ActionBar.propTypes = {
   getPrev: PropTypes.func,
   previous: PropTypes.bool,
   next: PropTypes.bool,
+  nextButtonName: PropTypes.string,
+  previousButtonName: PropTypes.string,
 };
 
 ActionBar.defaultProps = {
   previous: false,
   next: false,
+  nextButtonName: 'Next',
+  previousButtonName: 'Previous',
   getNext: () => {},
   getPrev: () => {},
 };

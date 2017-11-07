@@ -40,7 +40,7 @@ class RegisterUserDetails extends React.Component {
     return (
       <div>
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
-          Please register your account details
+          Please create your account details
         </h1>
         <Grid columns={1} centered>
           <Grid.Row centered>

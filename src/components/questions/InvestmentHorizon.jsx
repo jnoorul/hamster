@@ -49,7 +49,7 @@ class InvestmentHorizon extends React.Component {
                 className={('0-5' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
-                Less than 5 years
+                Less than 5 years &nbsp;&nbsp;&nbsp; <span style={{ fontSize: '0.8rem', fontWeight: '900' }}>(&lt; 2022)</span>
               </Button>
               <Button
                 data-key="5-10"
@@ -57,7 +57,7 @@ class InvestmentHorizon extends React.Component {
                 className={('5-10' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
-                5 to 10 years
+                5 to 10 years &nbsp;&nbsp;&nbsp; <span style={{ fontSize: '0.8rem', fontWeight: '900' }}>(&gt; 2022 &lt; 2027)</span>
               </Button>
               <Button
                 data-key="10-200"
@@ -65,7 +65,7 @@ class InvestmentHorizon extends React.Component {
                 className={('10-200' === this.props.customerInfo.investmentHorizon) ? 'primary' : 'basic'}
                 onClick={this.setInvestmentHorizon}
               >
-                More than 10 years
+                More than 10 years &nbsp;&nbsp;&nbsp;<span style={{ fontSize: '0.8rem', fontWeight: '900' }}>(&gt; 2027)</span>
               </Button>
             </Button.Group>
           </Grid.Row>

@@ -21,7 +21,10 @@ class AgeQuestion extends React.Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>I am
+
+        <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
+          My name is
+          <input type="text" className="underlineTextBox" style={{ width: '10rem' }} />, I am
           <input
             type="text"
             min="20"

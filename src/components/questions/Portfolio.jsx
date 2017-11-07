@@ -152,7 +152,7 @@ class Portfolio extends React.Component {
                 <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
               </Grid.Row>*/}
             </Grid>
-            <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
+            <ActionBar previous nextButtonName="Create Account" next getPrev={this.getPrev} getNext={this.getNext} />
           </div>
             /*<Pie title="Portfolio Details by Asset Type" series={this.getPortfolioDetails()} />
                 <Column title="Stocks Breakdown" assetClass="Stock" series={this.getAssetAllocationSeriesBreakdown()} drilldown={this.getAssetAllocationDrilldownBreakdown()} />

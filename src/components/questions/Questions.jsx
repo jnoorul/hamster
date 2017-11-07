@@ -18,7 +18,7 @@ class Questions extends React.Component {
     this.getComponentToRender = this.getComponentToRender.bind(this);
     this.componentmapper = {
       byName: {
-        0: Portfolio,
+        0: WelcomePage,
         1: Age,
         2: InvestmentKnowledge,
         3: InvestmentExperience,

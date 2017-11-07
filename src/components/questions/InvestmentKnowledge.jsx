@@ -47,7 +47,10 @@ class InvestmentKnowledge extends React.Component {
                 className={('none' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
-                No knowledge – I know virtually nothing about investing
+
+                No knowledge<span style={{ fontSize:'1rem' }}>
+                &nbsp;&nbsp;-&nbsp;&nbsp;I know virtually nothing about investing
+                </span>
               </Button>
               <Button
                 data-key="average"
@@ -55,7 +58,9 @@ class InvestmentKnowledge extends React.Component {
                 className={('average' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
-                Somewhat knowledgeable - I have a fair understanding about investing
+                Somewhat knowledgeable<span style={{ fontSize:'1rem' }}>
+                &nbsp;&nbsp;-&nbsp;&nbsp;I have a fair understanding about investing
+                </span>
               </Button>
               <Button
                 data-key="extensive"
@@ -63,7 +68,9 @@ class InvestmentKnowledge extends React.Component {
                 className={('extensive' === this.props.customerInfo.investmentKnowledge) ? 'primary' : 'basic'}
                 onClick={this.setKnowledge}
               >
-                Highly knowledgeable - I have a very good understanding about investing
+                Highly knowledgeable<span style={{ fontSize:'1rem' }}>
+                &nbsp;&nbsp;-&nbsp;&nbsp;I have a very good understanding about investing
+              </span>
               </Button>
           </Button.Group>
           </Grid.Row>

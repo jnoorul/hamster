@@ -34,6 +34,9 @@ class WelcomePage extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row centered>
+            <h4>Setup your portfolio in 5 minutes.</h4>
+          </Grid.Row>
+          <Grid.Row centered>
             <Grid.Column width={3}>
               <Button
                 size="large"
