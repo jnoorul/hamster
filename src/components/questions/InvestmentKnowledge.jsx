@@ -6,12 +6,12 @@ import ActionBar from '../home/ActionBar';
 class InvestmentKnowledge extends React.Component {
   constructor(props) {
     super(props);
-    this.onComplete = this.onComplete.bind(this);
+    this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.setKnowledge = this.setKnowledge.bind(this);
   }
 
-  onComplete() {
+  getNext() {
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
@@ -75,7 +75,7 @@ class InvestmentKnowledge extends React.Component {
           </Button.Group>
           </Grid.Row>
         </Grid>
-        <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
+        <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
       </div>
     );
   }

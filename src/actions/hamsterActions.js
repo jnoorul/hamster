@@ -52,6 +52,20 @@ export function setInvestmentHorizon(investmentHorizon) {
   };
 }
 
+export function setInitialInvestmentAmount(initialInvestmentAmount) {
+  return {
+    type: actions.SET_INITIAL_INVESTMENT_AMOUNT,
+    initialInvestmentAmount,
+  };
+}
+
+export function setName(name) {
+  return {
+    type: actions.SET_NAME,
+    name,
+  };
+}
+
 export function setReactionToFluctuation(reactionToFluctuation) {
   return {
     type: actions.SET_REACTION_TO_FLUCTUATION,

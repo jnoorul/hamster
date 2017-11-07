@@ -7,11 +7,11 @@ import ActionBar from '../home/ActionBar';
 class CustomerProfiling extends React.Component {
   constructor(props) {
     super(props);
-    this.onComplete = this.onComplete.bind(this);
+    this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
   }
 
-  onComplete() {
+  getNext() {
     this.props.getPortfolioInfo(this.props.customerInfo.totalRiskScore);
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
@@ -63,7 +63,7 @@ class CustomerProfiling extends React.Component {
           progress
           style={{ width: '40%', margin: 'auto' }}
         />
-        <ActionBar previous next getPrev={this.getPrev} getNext={this.onComplete} />
+        <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
       </div>
     );
   }
