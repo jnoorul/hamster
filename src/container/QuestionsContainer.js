@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as hamsterActionCreators from '../actions/hamsterActions';
 import {
-  saveCustomerInfoWithDispatch,
+  getRiskScoreWithDispatch,
   getPortfolioInfoWithDispatch,
-  saveAlertSettingsWithDispatch
+  saveAlertSettingsWithDispatch,
+  saveCustomerInfoWithDispatch,
 } from "../actions/hamsterActions";
 import Questions from '../components/questions/Questions';
 
@@ -35,6 +36,10 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 
+  const getRiskScore = (customerInfo) => {
+    getRiskScoreWithDispatch(dispatch, customerInfo);
+  };
+
   const saveCustomerInfo = (customerInfo) => {
     saveCustomerInfoWithDispatch(dispatch, customerInfo);
   };
@@ -50,6 +55,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getNextQuestion,
     getPreviousQuestion,
+    getRiskScore,
     saveCustomerInfo,
     getPortfolioInfo,
     saveAlertSettings,

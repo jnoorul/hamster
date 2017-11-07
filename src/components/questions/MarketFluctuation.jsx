@@ -12,7 +12,7 @@ class MarketFluctuation extends React.Component {
   }
 
   onComplete() {
-    this.props.saveCustomerInfo(this.props.customerInfo);
+    this.props.getRiskScore(this.props.customerInfo);
     this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
@@ -83,7 +83,7 @@ MarketFluctuation.propTypes = {
   customerInfo: PropTypes.shape({reactionToFluctuations: PropTypes.string}).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,
-  saveCustomerInfo: PropTypes.func.isRequired,
+  getRiskScore: PropTypes.func.isRequired,
   setReactionToFluctuation: PropTypes.func.isRequired,
 };
 

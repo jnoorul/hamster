@@ -22,7 +22,7 @@ class CustomerProfiling extends React.Component {
   }
 
   render() {
-    if (this.props.uiState.saveCustomerStatus === 'inprogress') {
+    if (this.props.uiState.getRiskScoreStatus === 'inprogress') {
       return (
         <div>
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
@@ -32,7 +32,7 @@ class CustomerProfiling extends React.Component {
         </div>);
     }
 
-    if (this.props.uiState.saveCustomerStatus === 'failure') {
+    if (this.props.uiState.getRiskScoreStatus === 'failure') {
       return (
         <div className="mainContent">
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
@@ -72,7 +72,7 @@ class CustomerProfiling extends React.Component {
 CustomerProfiling.propTypes = {
   qnNumber: PropTypes.number.isRequired,
   totalQns: PropTypes.number.isRequired,
-  uiState: PropTypes.shape({ saveCustomerStatus: PropTypes.string, err: PropTypes.object }).isRequired,
+  uiState: PropTypes.shape({ getRiskScoreStatus: PropTypes.string, err: PropTypes.object }).isRequired,
   customerInfo: PropTypes.shape({ totalRiskScore: PropTypes.number }).isRequired,
   getNextQuestion: PropTypes.func.isRequired,
   getPreviousQuestion: PropTypes.func.isRequired,

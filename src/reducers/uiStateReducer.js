@@ -2,7 +2,7 @@ import * as actions from '../actions/actionNames';
 
 export default function uiStateReducer(state = {
   qnNumber: 0,
-  totalQns: 9,
+  totalQns: 11,
 }, action) {
   switch (action.type) {
     case actions.SET_QUESTION_NUMBER:
@@ -13,6 +13,14 @@ export default function uiStateReducer(state = {
       return Object.assign({}, state, { saveCustomerStatus: 'success' });
     case actions.CUSTOMER_INFO_SAVE_FAILURE:
       return Object.assign({}, state, { saveCustomerStatus: 'failure', err: action.err });
+
+    case actions.GET_RISK_SCORE_REQUEST:
+      return Object.assign({}, state, { getRiskScoreStatus: 'inprogress' });
+    case actions.GET_RISK_SCORE_SUCCESS:
+      return Object.assign({}, state, { getRiskScoreStatus: 'success' });
+    case actions.GET_RISK_SCORE_FAILURE:
+      return Object.assign({}, state, { getRiskScoreStatus: 'failure', err: action.err });
+
     case actions.GET_PORTFOLIO_INFO_REQUEST:
       return Object.assign({}, state, { getPortfolioStatus: 'inprogress' });
     case actions.GET_PORTFOLIO_INFO_SUCCESS:

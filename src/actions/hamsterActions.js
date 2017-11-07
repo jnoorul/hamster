@@ -3,10 +3,10 @@ import * as actions from './actionNames';
 const hamsterServerUrl = 'https://hamster-server.herokuapp.com';
 // const hamsterServerUrl = 'https://localhost:3005';
 
-export function loadCustomerInfo() {
+export function loadCustomerInfo(customerInfo) {
   return {
     type: actions.LOAD_CUSTOMER_INFO,
-    customerInfo: {},
+    customerInfo,
   };
 }
 
@@ -143,6 +143,25 @@ export function saveCustomerFailure(err) {
   };
 }
 
+export function getRiskScoreRequest() {
+  return {
+    type: actions.GET_RISK_SCORE_REQUEST,
+  };
+}
+
+export function getRiskScoreSuccess() {
+  return {
+    type: actions.GET_RISK_SCORE_SUCCESS,
+  };
+}
+
+export function getRiskScoreFailure(err) {
+  return {
+    type: actions.GET_RISK_SCORE_FAILURE,
+    err,
+  };
+}
+
 export function getPortfolioInfoRequest() {
   return {
     type: actions.GET_PORTFOLIO_INFO_REQUEST,
@@ -188,8 +207,8 @@ export function setPorfolioInfo(portfolioInfo) {
   };
 }
 
-export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
-  dispatch(saveCustomerRequest());
+export function getRiskScoreWithDispatch(dispatch, customerInfo) {
+  dispatch(getRiskScoreRequest());
   fetch(`${hamsterServerUrl}/customer/riskscore`, {
     method: 'POST',
     headers: new Headers({ 'content-type': 'application/json' }),
@@ -199,6 +218,27 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
   }).then((jsonRes) => {
     setTimeout(() => {
       dispatch(setTotalRiskScore(jsonRes.totalRiskScore));
+      dispatch(getRiskScoreSuccess());
+    }, 1500);
+    // dispatch(setPorfolioInfo(jsonRes.portfolio));
+  }).catch((err) => {
+    setTimeout(() => {
+      dispatch(getRiskScoreFailure(err.message));
+    }, 1500);
+  });
+}
+
+export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
+  dispatch(saveCustomerRequest());
+  fetch(`${hamsterServerUrl}/customer/insert`, {
+    method: 'POST',
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: JSON.stringify(customerInfo),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    setTimeout(() => {
+      dispatch(loadCustomerInfo(jsonRes.customer));
       dispatch(saveCustomerSuccess());
     }, 1500);
     // dispatch(setPorfolioInfo(jsonRes.portfolio));

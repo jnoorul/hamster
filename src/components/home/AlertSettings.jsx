@@ -29,7 +29,10 @@ class AlertSettings extends React.Component {
   }
 
   saveAlertSettings() {
-    const alertInfo = Object.assign({}, this.props.alertSettings, {cif: 199, portfolioId: 1 });
+    const alertInfo = Object.assign(
+      {}, this.props.alertSettings,
+      { cif: this.props.customerInfo.cif, portfolioId: this.props.customerInfo.portfolioId },
+    );
     this.props.saveAlertSettings(alertInfo);
   }
 
@@ -186,6 +189,10 @@ AlertSettings.propTypes = {
   setAlertInstrumentBelow: PropTypes.func.isRequired,
   saveAlertSettings: PropTypes.func.isRequired,
   uiState: PropTypes.shape({ saveAlertStatus: PropTypes.string }),
+  customerInfo: PropTypes.shape({
+    cif: PropTypes.string,
+    portfolioId: PropTypes.string,
+  }).isRequired,
   alertSettings: PropTypes.shape({
     alertVia: PropTypes.string,
     portfolioAbove: PropTypes.number,

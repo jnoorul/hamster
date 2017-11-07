@@ -28,6 +28,7 @@ class Questions extends React.Component {
         7: CustomerProfiling,
         8: Portfolio,
         9: RegisterUserDetails,
+        10: AlertSettings,
       },
     };
   }

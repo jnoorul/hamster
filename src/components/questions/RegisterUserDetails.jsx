@@ -14,9 +14,7 @@ class RegisterUserDetails extends React.Component {
 
   getNext() {
     this.props.saveCustomerInfo(this.props.customerInfo);
-    setTimeout(() => {
-      this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
-    }, 1000);
+    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
   getPrev() {
@@ -63,7 +61,13 @@ class RegisterUserDetails extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
+        <ActionBar
+          previous
+          next
+          nextButtonName="Proceed"
+          getPrev={this.getPrev}
+          getNext={this.getNext}
+        />
       </div>
     );
   }
