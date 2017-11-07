@@ -20,7 +20,7 @@ class AgeQuestion extends React.Component {
 
   render() {
     return (
-      <div className="mainContent">
+      <div>
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>I am
           <input
             type="text"

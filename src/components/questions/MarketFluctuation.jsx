@@ -35,7 +35,7 @@ class MarketFluctuation extends React.Component {
     };
 
     return (
-      <div className="mainContent">
+      <div>
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           If your investment value dropped by more than 20%, you would be:
         </h1>

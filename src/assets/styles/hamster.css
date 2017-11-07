@@ -1,8 +1,23 @@
-body {
+html, body {
     font-family: "Calibri", Georgia, "Franklin Gothic Medium";
+    height: 100%;
+    margin: 0;
+}
+
+.app {
+    height: 100%;
+    margin: 0;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
 .header {
+    flex: 0 0 50px;
     background-color: rgb(50,50,50);
     padding: .4rem;
     font-size: large;
@@ -10,14 +25,15 @@ body {
 }
 
 .footer {
+    flex: 0 0 50px;
     background-color: rgb(242,242,242);
     padding: 1rem;
     font-size: small;
     height: 50px;
 }
 
-.mainContent {
-    height: 635px;
+.mainContainer {
+    flex: 1 1 400px;
 }
 
 .roboImage {

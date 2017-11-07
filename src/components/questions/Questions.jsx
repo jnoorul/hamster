@@ -18,7 +18,7 @@ class Questions extends React.Component {
     this.getComponentToRender = this.getComponentToRender.bind(this);
     this.componentmapper = {
       byName: {
-        0: AlertSettings,
+        0: WelcomePage,
         1: Age,
         2: InvestmentKnowledge,
         3: InvestmentExperience,
@@ -39,7 +39,7 @@ class Questions extends React.Component {
   render() {
     const ComponentToRender = this.getComponentToRender();
     return (
-      <div>
+      <div className="mainContainer">
         <ComponentToRender {...this.props} />
       </div>
     );

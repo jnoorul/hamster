@@ -35,7 +35,7 @@ class ExpectedReturn extends React.Component {
     };
 
     return (
-      <div className="mainContent">
+      <div>
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           Your attitude towards risk and return,
         </h1>

@@ -24,7 +24,7 @@ class CustomerProfiling extends React.Component {
   render() {
     if (this.props.uiState.saveCustomerStatus === 'inprogress') {
       return (
-        <div className="mainContent">
+        <div>
           <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '15%' }}>
             Customer Profiling is in progress...
           </h1>

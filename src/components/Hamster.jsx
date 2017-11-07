@@ -15,7 +15,7 @@ const Hamster = class Hamster extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div>
+        <div className="app">
           <Header />
           <QuestionsContainer />
           <div className="footer" style={{ color: 'black' }}>@Copyrights Hamster</div>

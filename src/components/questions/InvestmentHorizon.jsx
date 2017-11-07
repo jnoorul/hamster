@@ -36,7 +36,7 @@ class InvestmentHorizon extends React.Component {
     };
 
     return (
-      <div className="mainContent">
+      <div>
         <h1 style={{ textAlign: 'center', lineHeight: '6rem', paddingTop: '13%', fontSize: '2.5rem' }}>
           How long do you plan to keep your money invested for?
         </h1>
