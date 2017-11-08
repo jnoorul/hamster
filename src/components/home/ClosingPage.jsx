@@ -17,13 +17,20 @@ class ClosingPage extends React.Component {
   render() {
     const { saveAlertStatus } = this.props.uiState;
 
-    return (
-      <Grid>
+    if (saveAlertStatus === 'inprogress') {
+      return (
+        <Grid>
         <Grid.Row style={{ marginTop: '10rem' }}>
           <Dimmer active={(saveAlertStatus === 'inprogress')} inverted>
             <Loader inverted>Saving...</Loader>
           </Dimmer>
         </Grid.Row>
+        </Grid>
+      );
+    }
+
+    return (
+      <Grid>
         <Grid.Row centered>
           <h3
             basic

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Grid, Button } from 'semantic-ui-react';
 
 function ActionBar(props) {
+  const myStyle = (props.style) ? props.style : { marginTop: '3rem' };
   return (
-    <Grid style={{ marginTop: '3rem' }}>
+    <Grid style={myStyle}>
       <Grid.Row centered>
         <Grid.Column width={4}>
           <Button.Group style={{ width: '90%', margin: 'auto', height: '3.2rem' }}>

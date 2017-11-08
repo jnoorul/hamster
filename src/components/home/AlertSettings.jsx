@@ -173,8 +173,8 @@ class AlertSettings extends React.Component {
                       />
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row centered>
-                    <ActionBar next nextButtonName="Save" getNext={this.getNext}/>
+                  <Grid.Row style={{paddingTop: '0'}} centered>
+                    <ActionBar style={{ marginTop: '0' }} next nextButtonName="Save" getNext={this.getNext} />
                   </Grid.Row>
                 </Grid>
               </Segment>

@@ -74,7 +74,7 @@ export default class HomePage extends React.Component {
               <Table celled>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell colSpan='3'>Recent Transactions</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: 'lightblue'}} colSpan='3'>Recent Transactions</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
               </Table>

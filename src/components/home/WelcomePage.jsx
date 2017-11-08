@@ -17,7 +17,7 @@ class WelcomePage extends React.Component {
 
   render() {
     return (
-      <div className="mainContent">
+      <div>
         <Grid columns={3} style={{ margin: '0' }}>
           <Grid.Row>
             <Grid.Column width={0} />

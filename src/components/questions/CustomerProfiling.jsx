@@ -64,7 +64,7 @@ class CustomerProfiling extends React.Component {
           progress
           style={{ width: '40%', margin: 'auto' }}
         />
-        <ActionBar previous next getPrev={this.getPrev} getNext={this.getNext} />
+        <ActionBar previous next nextButtonName="Create Portfolio" getPrev={this.getPrev} getNext={this.getNext} />
       </div>
     );
   }

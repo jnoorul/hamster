@@ -14,7 +14,7 @@ export default function getConfig(input) {
       }
     },
     title: {
-      text: 'Instruments in selected category'
+      text: 'Instruments'
     },
     subtitle: {
       text: ''
