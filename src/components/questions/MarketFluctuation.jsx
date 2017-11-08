@@ -64,9 +64,9 @@ class MarketFluctuation extends React.Component {
                 className={('ignore' === this.props.customerInfo.reactionToFluctuation) ? 'primary' : 'basic'}
                 onClick={this.setReactionToFluctuations}
               >
-                Not worried <span style={{ fontSize:'1rem' }}>
+                Not worried
                 &nbsp;&nbsp;-&nbsp;&nbsp;you are familiar with sharemarket fluctuations
-              </span>
+
               </Button>
           </Button.Group>
           </Grid.Row>

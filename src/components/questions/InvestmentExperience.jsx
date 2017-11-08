@@ -48,9 +48,9 @@ class InvestmentExperience extends React.Component {
                 className={('none' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
-                None <span style={{ fontSize:'1rem' }}>
+                None
                 &nbsp;&nbsp;-&nbsp;&nbsp;I am new to the area of investing
-                </span>
+
               </Button>
               <Button
                 data-key="average"
@@ -58,9 +58,9 @@ class InvestmentExperience extends React.Component {
                 className={('average' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
-                Moderate Extensive <span style={{ fontSize:'1rem' }}>
+                Moderate Extensive
                 &nbsp;&nbsp;-&nbsp;&nbsp;I have some experience in investing in managed funds
-                </span>
+
               </Button>
               <Button
                 data-key="extensive"
@@ -68,9 +68,9 @@ class InvestmentExperience extends React.Component {
                 className={('extensive' === this.props.customerInfo.investmentExperience) ? 'primary' : 'basic'}
                 onClick={this.setExperience}
               >
-                Extensive<span style={{ fontSize:'1rem' }}>
+                Extensive
                 &nbsp;&nbsp;-&nbsp;&nbsp;I have invested in a variety of vehicles including direct investments in stocks
-                </span>
+
 
             </Button>
           </Button.Group>

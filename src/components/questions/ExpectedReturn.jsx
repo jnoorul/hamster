@@ -48,9 +48,9 @@ class ExpectedReturn extends React.Component {
                 className={('conservative' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
                 onClick={this.setExpectedReturn}
               >
-                Very conservative<span style={{ fontSize:'1rem' }}>
+                Very conservative
                 &nbsp;&nbsp;-&nbsp;&nbsp;you are not much of a risk taker and accept lower returns
-                </span>
+
               </Button>
               <Button
                 data-key="moderate"
@@ -58,9 +58,9 @@ class ExpectedReturn extends React.Component {
                 className={('moderate' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
                 onClick={this.setExpectedReturn}
               >
-                Moderate<span style={{ fontSize:'1rem' }}>
+                Moderate
                 &nbsp;&nbsp;-&nbsp;&nbsp;You are willing to take moderate risk to improve returns
-                </span>
+
               </Button>
               <Button
                 data-key="aggressive"
@@ -68,9 +68,9 @@ class ExpectedReturn extends React.Component {
                 className={('aggressive' === this.props.customerInfo.expectedReturn) ? 'primary' : 'basic'}
                 onClick={this.setExpectedReturn}
               >
-                Aggressive<span style={{ fontSize:'1rem' }}>
+                Aggressive
                 &nbsp;&nbsp;-&nbsp;&nbsp;You are willing to take a high level of risk to maximise returns
-                </span>
+
               </Button>
             </Button.Group>
           </Grid.Row>
