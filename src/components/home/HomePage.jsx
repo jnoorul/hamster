@@ -6,15 +6,24 @@ export default class HomePage extends React.Component {
     super(props);
   }
 
+  static asMoney(x) {
+    if (typeof x !== 'number') {
+      x = parseInt(x);
+    }
+    x= Math.round(x);
+    x = Math.abs(x);
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
     const initialInvestment = this.props.customerInfo.initialInvestmentAmount;
     const position = this.props.customerInfo.position;
     const transactions = this.props.customerInfo.transactions;
     const { getPositionStatus, getTransactionStatus } = this.props.uiState;
 
-    if (getTransactionStatus === 'inprogress') {
+    if (getTransactionStatus === 'inprogress' || getPositionStatus === 'inprogress') {
       return (
-        <Grid>
+        <Grid style={{ marginTop: '10rem' }}>
           <Grid.Row>
             <Dimmer active={(getTransactionStatus === 'inprogress')} inverted>
               <Loader inverted>Saving...</Loader>
@@ -23,9 +32,9 @@ export default class HomePage extends React.Component {
         </Grid>);
     }
 
-    if (getTransactionStatus === 'failure') {
+    if (getTransactionStatus === 'failure' || getPositionStatus === 'failure') {
       return (
-        <Grid>
+        <Grid style={{ marginTop: '10rem' }}>
           <Grid.Row centered>
             <Label
               basic
@@ -53,8 +62,8 @@ export default class HomePage extends React.Component {
                     </Table.Row>
                 </Table.Header>
                 <Table.Row style={{ padding: '5rem'}}>
-                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}}>{initialInvestment}</Table.HeaderCell>
-                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >{position}</Table.HeaderCell>
+                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}}>{HomePage.asMoney(initialInvestment)}</Table.HeaderCell>
+                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >{HomePage.asMoney(position)}</Table.HeaderCell>
                   <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >20%</Table.HeaderCell>
                 </Table.Row>
               </Table>
@@ -76,19 +85,19 @@ export default class HomePage extends React.Component {
                     <Table.HeaderCell >Buy / Sell</Table.HeaderCell>
                     <Table.HeaderCell >Quantity</Table.HeaderCell>
                     <Table.HeaderCell >Price</Table.HeaderCell>
-                    <Table.HeaderCell >Total Price</Table.HeaderCell>
+                    <Table.HeaderCell >Amount</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
                   {
-                    transactions.map((row) => {
+                    transactions.slice(1,10).map((row) => {
                       return(
                       <Table.Row>
                         <Table.Cell>{row.ticker}</Table.Cell>
                         <Table.Cell>{row.BuySell}</Table.Cell>
                         <Table.Cell textAlign='right'>{row.numberOfUnits}</Table.Cell>
                         <Table.Cell textAlign='right'>{row.unitPrice}</Table.Cell>
-                        <Table.Cell textAlign='right'>{row.amount}</Table.Cell>
+                        <Table.Cell textAlign='right'>{HomePage.asMoney(row.amount)}</Table.Cell>
                       </Table.Row>
                       )
                     })

@@ -10,6 +10,7 @@ class RegisterUserDetails extends React.Component {
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.setUserId = this.setUserId.bind(this);
+    this.setMobileNumber = this.setMobileNumber.bind(this);
   }
 
   getNext() {
@@ -23,7 +24,10 @@ class RegisterUserDetails extends React.Component {
 
   setUserId(event) {
     this.props.setUserId(event.target.value);
-    // setTimeout(() => this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns),1000);
+  }
+
+  setMobileNumber(event) {
+    this.props.setMobileNumber(`65${event.target.value}`);
   }
 
   render() {
@@ -57,7 +61,12 @@ class RegisterUserDetails extends React.Component {
           </Grid.Row>
           <Grid.Row centered>
             <Grid.Column width={4}>
-              <Input  type="number" label={<Label style={{ paddingLeft: '4.5rem' }}>+65</Label>} placeholder="mobile number" />
+              <Input
+                type="number"
+                label={<Label style={{ paddingLeft: '4.5rem' }}>+65</Label>}
+                placeholder="mobile number"
+                onChange={this.setMobileNumber}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>

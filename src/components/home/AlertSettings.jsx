@@ -60,7 +60,7 @@ class AlertSettings extends React.Component {
 
     if (saveCustomerStatus === 'inprogress') {
       return (
-        <Grid>
+        <Grid style={{ marginTop: '10rem' }}>
           <Grid.Row>
             <Dimmer active={(saveCustomerStatus === 'inprogress')} inverted>
               <Loader inverted>Saving...</Loader>
@@ -71,7 +71,7 @@ class AlertSettings extends React.Component {
 
     if (saveCustomerStatus === 'failure') {
       return (
-        <Grid>
+        <Grid style={{ marginTop: '10rem' }}>
           <Grid.Row centered>
             <Label
               basic

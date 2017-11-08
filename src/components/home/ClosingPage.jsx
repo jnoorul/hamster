@@ -19,7 +19,7 @@ class ClosingPage extends React.Component {
 
     return (
       <Grid>
-        <Grid.Row>
+        <Grid.Row style={{ marginTop: '10rem' }}>
           <Dimmer active={(saveAlertStatus === 'inprogress')} inverted>
             <Loader inverted>Saving...</Loader>
           </Dimmer>

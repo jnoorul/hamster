@@ -80,6 +80,13 @@ export function setUserId(userId) {
   };
 }
 
+export function setMobileNumber(mobileNumber) {
+  return {
+    type: actions.SET_MOBILE_NUMBER,
+    mobileNumber,
+  };
+}
+
 export function setTotalRiskScore(totalRiskScore) {
   return {
     type: actions.SET_TOTAL_RISK_SCORE,
@@ -395,7 +402,7 @@ export function getPositionWithDispatch(dispatch, customerInfo) {
     return res.json();
   }).then((jsonRes) => {
     dispatch(setPosition(jsonRes.todayPosition));
-    dispatch(getPortfolioInfoSuccess());
+    dispatch(getPositionSuccess());
   }).catch((err) => {
     dispatch(getPositionFailure(err.message));
   });

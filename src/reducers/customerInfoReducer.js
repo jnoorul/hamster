@@ -20,6 +20,8 @@ export default function customerInfoReducer(state = { portfolioId: '1' }, action
       return Object.assign({}, state, { expectedReturn: action.expectedReturn });
     case actions.SET_USER_ID:
       return Object.assign({}, state, { userId: action.userId });
+    case actions.SET_MOBILE_NUMBER:
+      return Object.assign({}, state, { mobileNumber: action.mobileNumber });
     case actions.SET_TOTAL_RISK_SCORE:
       return Object.assign({}, state, { totalRiskScore: action.totalRiskScore });
     case actions.SET_NAME:
