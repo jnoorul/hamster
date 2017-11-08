@@ -15,6 +15,20 @@ export default class HomePage extends React.Component {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  static calculateReturn(from, to) {
+    let original;
+    let final;
+    if (typeof from !== 'number') {
+      original = parseInt(from);
+    }
+    if (typeof from !== 'number') {
+      final = parseInt(to);
+    }
+    const difference = final - original;
+    const perc = (difference / from) * 100;
+    return Math.round(perc);
+  }
+
   render() {
     const initialInvestment = this.props.customerInfo.initialInvestmentAmount;
     const position = this.props.customerInfo.position;
@@ -26,7 +40,7 @@ export default class HomePage extends React.Component {
         <Grid style={{ marginTop: '10rem' }}>
           <Grid.Row>
             <Dimmer active={(getTransactionStatus === 'inprogress')} inverted>
-              <Loader inverted>Saving...</Loader>
+              <Loader inverted>Loading profile ...</Loader>
             </Dimmer>
           </Grid.Row>
         </Grid>);
@@ -64,12 +78,14 @@ export default class HomePage extends React.Component {
                 <Table.Row style={{ padding: '5rem'}}>
                   <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}}>{HomePage.asMoney(initialInvestment)}</Table.HeaderCell>
                   <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >{HomePage.asMoney(position)}</Table.HeaderCell>
-                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >20%</Table.HeaderCell>
+                  <Table.HeaderCell style={{height: '8rem', backgroundColor: 'floralwhite'}} >
+                    {HomePage.asMoney(position - initialInvestment)}
+                    </Table.HeaderCell>
                 </Table.Row>
               </Table>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row centered style={{ marginTop: '5rem' }}>
+          <Grid.Row centered style={{ marginTop: '3rem' }}>
             <Grid.Column width={12}>
               <Table celled>
                 <Table.Header>
@@ -90,7 +106,7 @@ export default class HomePage extends React.Component {
                 </Table.Header>
                 <Table.Body>
                   {
-                    transactions.slice(1,10).map((row) => {
+                    transactions.slice(1,4).map((row) => {
                       return(
                       <Table.Row>
                         <Table.Cell>{row.ticker}</Table.Cell>
