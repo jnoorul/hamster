@@ -233,6 +233,44 @@ export function saveAlertSettingsFailure(err) {
   };
 }
 
+export function getPositionRequest() {
+  return {
+    type: actions.GET_POSITION_REQUEST,
+  };
+}
+
+export function getPositionSuccess() {
+  return {
+    type: actions.GET_POSITION_SUCCESS,
+  };
+}
+
+export function getPositionFailure(err) {
+  return {
+    type: actions.GET_POSITION_FAILURE,
+    err,
+  };
+}
+
+export function getTransactionRequest() {
+  return {
+    type: actions.GET_TRANSACTION_REQUEST,
+  };
+}
+
+export function getTransactionSuccess() {
+  return {
+    type: actions.GET_TRANSACTION_SUCCESS,
+  };
+}
+
+export function getTransactionFailure(err) {
+  return {
+    type: actions.GET_TRANSACTION_FAILURE,
+    err,
+  };
+}
+
 export function setPorfolioInfo(portfolioInfo) {
   return {
     type: actions.SET_PORTFOLIO_INFO,
@@ -244,6 +282,20 @@ export function setDetailedPorfolioInfo(detailedPortfolioInfo) {
   return {
     type: actions.SET_DETAILED_PORTFOLIO_INFO,
     detailedPortfolioInfo,
+  };
+}
+
+export function setPosition(position) {
+  return {
+    type: actions.SET_POSITION,
+    position,
+  };
+}
+
+export function setTransactions(transactions) {
+  return {
+    type: actions.SET_TRANSACTION,
+    transactions,
   };
 }
 
@@ -274,10 +326,8 @@ export function saveCustomerInfoWithDispatch(dispatch, customerInfo) {
   }).then((res) => {
     return res.json();
   }).then((jsonRes) => {
-    setTimeout(() => {
-      dispatch(loadCustomerInfo(jsonRes.customer));
-      dispatch(saveCustomerSuccess());
-    }, 500);
+    dispatch(loadCustomerInfo(jsonRes));
+    dispatch(saveCustomerSuccess());
   }).catch((err) => {
     dispatch(saveCustomerFailure(err.message));
   });
@@ -334,3 +384,36 @@ export function saveAlertSettingsWithDispatch(dispatch, alertInfo) {
   });
 }
 
+export function getPositionWithDispatch(dispatch, customerInfo) {
+  const cif = customerInfo.cif;
+  const portfolioId = customerInfo.portfolioId;
+  dispatch(getPositionRequest());
+  fetch(`${hamsterServerUrl}/portfolio/position/${cif}/${portfolioId}`, {
+    method: 'GET',
+    headers: new Headers({ 'content-type': 'application/json' }),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    dispatch(setPosition(jsonRes.todayPosition));
+    dispatch(getPortfolioInfoSuccess());
+  }).catch((err) => {
+    dispatch(getPositionFailure(err.message));
+  });
+}
+
+export function getTransactionWithDispatch(dispatch, customerInfo) {
+  const cif = customerInfo.cif;
+  const portfolioId = customerInfo.portfolioId;
+  dispatch(getTransactionRequest());
+  fetch(`${hamsterServerUrl}/transaction/${cif}/${portfolioId}`, {
+    method: 'GET',
+    headers: new Headers({ 'content-type': 'application/json' }),
+  }).then((res) => {
+    return res.json();
+  }).then((jsonRes) => {
+    dispatch(setTransactions(jsonRes));
+    dispatch(getTransactionSuccess());
+  }).catch((err) => {
+    dispatch(getTransactionFailure(err.message));
+  });
+}

@@ -2,7 +2,7 @@ import * as actions from '../actions/actionNames';
 
 export default function uiStateReducer(state = {
   qnNumber: 0,
-  totalQns: 11,
+  totalQns: 12,
 }, action) {
   switch (action.type) {
     case actions.SET_QUESTION_NUMBER:
@@ -41,6 +41,20 @@ export default function uiStateReducer(state = {
       return Object.assign({}, state, { saveAlertStatus: 'success' });
     case actions.SAVE_ALERT_SETTINGS_FAILURE:
       return Object.assign({}, state, { saveAlertStatus: 'failure', err: action.err });
+
+    case actions.GET_POSITION_REQUEST:
+      return Object.assign({}, state, { getPositionStatus: 'inprogress' });
+    case actions.GET_POSITION_SUCCESS:
+      return Object.assign({}, state, { getPositionStatus: 'success' });
+    case actions.GET_POSITION_FAILURE:
+      return Object.assign({}, state, { getPositionStatus: 'failure', err: action.err });
+
+    case actions.GET_TRANSACTION_REQUEST:
+      return Object.assign({}, state, { getTransactionStatus: 'inprogress' });
+    case actions.GET_TRANSACTION_SUCCESS:
+      return Object.assign({}, state, { getTransactionStatus: 'success' });
+    case actions.GET_TRANSACTION_FAILURE:
+      return Object.assign({}, state, { getTransactionStatus: 'failure', err: action.err });
     default:
       return state;
   }

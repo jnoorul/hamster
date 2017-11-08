@@ -13,6 +13,7 @@ import Portfolio from './Portfolio';
 import PortfolioNew from './PortfolioNew';
 import AlertSettings from '../home/AlertSettings';
 import ClosingPage from '../home/ClosingPage';
+import HomePage from '../home/HomePage';
 
 class Questions extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Questions extends React.Component {
         9: RegisterUserDetails,
         10: AlertSettings,
         11: ClosingPage,
+        12: HomePage,
       },
     };
   }

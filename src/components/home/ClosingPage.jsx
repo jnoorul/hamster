@@ -5,6 +5,13 @@ import { Label, Grid, Button, Dimmer, Loader } from 'semantic-ui-react';
 class ClosingPage extends React.Component {
   constructor(props) {
     super(props);
+    this.getNext = this.getNext.bind(this);
+  }
+
+  getNext() {
+    this.props.getPosition(this.props.customerInfo);
+    this.props.getTransaction(this.props.customerInfo);
+    this.props.getNextQuestion(this.props.qnNumber, this.props.totalQns);
   }
 
   render() {
@@ -49,7 +56,7 @@ class ClosingPage extends React.Component {
             <Button
               primary
               style={{float: 'left', width: '10rem'}}
-              onClick={this.saveAlertSettings}
+              onClick={this.getNext}
             >
               Home Page
             </Button>

@@ -26,6 +26,10 @@ export default function customerInfoReducer(state = { portfolioId: '1' }, action
       return Object.assign({}, state, { name: action.name });
     case actions.SET_INITIAL_INVESTMENT_AMOUNT:
       return Object.assign({}, state, { initialInvestmentAmount: action.initialInvestmentAmount });
+    case actions.SET_POSITION:
+      return Object.assign({}, state, { position: action.position });
+    case actions.SET_TRANSACTION:
+      return Object.assign({}, state, { transactions: action.transactions });
     default:
       return state;
   }
